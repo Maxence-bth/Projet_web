@@ -3,5 +3,11 @@ body{
   }
 
 #nav{
+    width: auto;
+    height: auto;
+    text-align: center;
+}
+
+#title{
     text-align: center;
 }
