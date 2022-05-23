@@ -1,5 +1,3 @@
-CREATE DATABASE  IF NOT EXISTS `push_n_pool` /*!40100 DEFAULT CHARACTER SET utf8 */ /*!80016 DEFAULT ENCRYPTION='N' */;
-USE `push_n_pool`;
 -- MySQL dump 10.13  Distrib 8.0.28, for Win64 (x86_64)
 --
 -- Host: localhost    Database: push_n_pool
@@ -28,7 +26,7 @@ CREATE TABLE `activity` (
   `idActivity` int NOT NULL AUTO_INCREMENT,
   `Name` varchar(45) NOT NULL,
   PRIMARY KEY (`idActivity`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -56,7 +54,7 @@ CREATE TABLE `appointments` (
   KEY `idSlot_idx` (`idSlot`),
   CONSTRAINT `idClient` FOREIGN KEY (`idClient`) REFERENCES `client` (`idClient`),
   CONSTRAINT `idSlot` FOREIGN KEY (`idSlot`) REFERENCES `slot` (`idSlot`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -83,7 +81,7 @@ CREATE TABLE `client` (
   PRIMARY KEY (`idClient`),
   KEY `idPerson_idx` (`idPerson`),
   CONSTRAINT `idPerson_client` FOREIGN KEY (`idPerson`) REFERENCES `person` (`idPerson`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -112,7 +110,7 @@ CREATE TABLE `coach` (
   KEY `idActivity_idx` (`Activity`),
   CONSTRAINT `idActivity` FOREIGN KEY (`Activity`) REFERENCES `activity` (`idActivity`),
   CONSTRAINT `idPerson_coach` FOREIGN KEY (`idPerson`) REFERENCES `person` (`idPerson`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -136,7 +134,7 @@ CREATE TABLE `date` (
   `dateCol` datetime NOT NULL,
   PRIMARY KEY (`idDate`),
   UNIQUE KEY `Datecol_UNIQUE` (`dateCol`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -160,7 +158,7 @@ CREATE TABLE `payments` (
   `amount` int DEFAULT NULL,
   `object` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`idPayments`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -186,7 +184,7 @@ CREATE TABLE `person` (
   `Email` varchar(45) NOT NULL,
   PRIMARY KEY (`idPerson`),
   UNIQUE KEY `idPerson_UNIQUE` (`idPerson`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -215,7 +213,7 @@ CREATE TABLE `slot` (
   KEY `idDate_idx` (`idDate`),
   CONSTRAINT `idCoach` FOREIGN KEY (`idCoach`) REFERENCES `coach` (`idCoach`),
   CONSTRAINT `idDate` FOREIGN KEY (`idDate`) REFERENCES `date` (`idDate`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -236,4 +234,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-05-23 12:54:36
+-- Dump completed on 2022-05-23 12:50:06
