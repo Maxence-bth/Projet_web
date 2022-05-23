@@ -1,3 +1,5 @@
+CREATE DATABASE  IF NOT EXISTS `push_n_pool` /*!40100 DEFAULT CHARACTER SET utf8 */ /*!80016 DEFAULT ENCRYPTION='N' */;
+USE `push_n_pool`;
 -- MySQL dump 10.13  Distrib 8.0.28, for Win64 (x86_64)
 --
 -- Host: localhost    Database: push_n_pool
@@ -234,4 +236,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-05-23 12:50:06
+-- Dump completed on 2022-05-23 12:54:36
