@@ -4,47 +4,94 @@
     <title>Page d'accueil</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" text="text/css" href="index.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css">
     <script type="text/javascript" src = "index.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
   </head>
   <body>
     <div id ="title"><p> <img src="images/title.png" alt="erreur" width="400" height="150"></p></div>
     <div id="nav">
-      <a href="index.html"><img src="images/accueil.png" alt="erreur" width="150" height="40"/></a>
-      <a href="parcourir.html"><img src="images/parcourir.png " alt="erreur" width="150" height="40"/></a>
-      <a href="recherche.html"><img src="images/recherche.png" alt="erreur" width="150" height="40"/></a>
-      <a href="rdv.html"><img src="images/rdv.png" alt="erreur" width="150" height="40"/></a>
-      <a href="compte.html"><img src="images/votrecompte.png" alt="erreur" width="150" height="40"/></a>
+      <a href="index.html"><img src="images/accueil.png" alt="erreur" width="150" height="40"/></a> &nbsp;
+      <a href="parcourir.html"><img src="images/parcourir.png " alt="erreur" width="150" height="40"/></a> &nbsp;
+      <a href="recherche.html"><img src="images/recherche.png" alt="erreur" width="150" height="40"/></a> &nbsp;
+      <a href="rdv.html"><img src="images/rdv.png" alt="erreur" width="150" height="40"/></a> &nbsp;
+      <a href="compte.html"><img src="images/votrecompte.png" alt="erreur" width="150" height="40"/></a> &nbsp;
+    </div> <br><br>
+
+    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+      </div>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="images/compete.jpg" class="d-block w-100" alt="erreur">
+        </div>
+        <div class="carousel-item">
+          <img src="images/fitness.jpg" class="d-block w-100" alt="erreur">
+        </div>
+        <div class="carousel-item">
+          <img src="images/sallesport.jpeg" class="d-block w-100" alt="erreur">
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
     </div>
-    <div id="carrousel">
-      <ul>
-        <li><img src="images/accueil.png" width="120" height="100"></li>
-        <li><img src="images/parcourir.png" width="120" height="100"></li>
-        <li><img src="images/accueil.png" width="120" height="100"></li>
-        <li><img src="images/accueil.png" width="120" height="100"></li>
-        <li><img src="images/accueil.png" width="120" height="100"></li>
-        <li><img src="images/accueil.png" width="120" height="100"></li>
-        <li><img src="images/accueil.png" width="120" height="100"></li>
-        <li><img src="images/accueil.png" width="120" height="100"></li>
-        <li><img src="images/accueil.png" width="120" height="100"></li>
-        <li><img src="images/accueil.png" width="120" height="100"></li>
-        <li><img src="images/accueil.png" width="120" height="100"></li>
-        <li><img src="images/accueil.png" width="120" height="100"></li>
-      </ul>
-      <div id="buttons">
-        <input type="button" value="<" class="prev">
-        <input type="button" value=">" class="next">
+
+    <div class="accordion" id="accordionExample">
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingOne">
+          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+            Qui sont les créateurs ? 
+          </button>
+        </h2>
+        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            <strong>Nous un collectifs de 4 étudiants.</strong> Notre objectif est de créer un plateforme pour rendre l'accès à différent sport plus simple, sans avoir à s'inscrire dans un club qui fait qu'un ou deux sports. Il y a Hermione Carpentier l'UX designer du groupe, Maxence Barth le gars chaud, Romain Senhadji le responsable de la BDD et Lucas Saccomman la salope du chien.
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingTwo">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+            L'histoire du projet
+          </button>
+        </h2>
+        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            <strong>Ce projet est née autour d'une piscine à Aix en provence.</strong> On voulait créer un club de sport mais on souhaitait tous faire quelque chose de différents. On a donc décider de créer une plateforme qui regroupe plusieurs sports, allant de la musculation au sport collectif.  
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingThree">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+            Quoi trouver sur la plateforme ?
+          </button>
+        </h2>
+        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            <strong>Notre plateforme se découpe en plusieurs sections</strong> Vous pouvez vous rendre dans notre salle de sport. Il y a aussi différent coach disponible dans beaucoup de discipline tels que le basketball, le fitness ou encore le Tennis. Vous pouvez aussi rechercher des coachs ou des activités sportives.
+          </div>
+        </div>
       </div>
     </div>
 
-      <div id="footer">Copyright &copy; 2022 PUSH 'N POOL<br />
+    <div id="footer">Copyright &copy; 2022 PUSH 'N POOL<br />
       <a href="mailto:pushnpool@gmail.com">pushnpool@gmail.com </a><br />
       <a>01 22 67 89 00 </a><br />
       <a>10 rue Sextius Michel, Paris 75015 </a><br />
       <p><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2625.372616477147!2d2.2863485148902147!3d48.851104609174946!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e6701b486bb253%3A0x61e9cc6979f93fae!2s10%20Rue%20Sextius%20Michel%2C%2075015%20Paris!5e0!3m2!1sfr!2sfr!4v1653230919712!5m2!1sfr!2sfr" width="800" height="150" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></p>
     </div>
-
-     </div>
-
     
+ 
   </body>
 </html>
