@@ -1,0 +1,14 @@
+<style>
+.contenant {
+  position: relative;
+  text-align: center;
+  color: red;
+}
+
+.texte_centrer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+</style>
