@@ -25,6 +25,8 @@ session_start();
  function loginForm() {
  echo
  '<div id="loginform">
+ <a href="index.html"> Retour acceuil</a> 
+ <p></p>
  <p>Veuillez saisir votre nom pour continuer : </p>
  <form action="chatroom.php" method="post">
  <label for="name">Nom: </label>
