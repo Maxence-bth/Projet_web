@@ -1,21 +1,21 @@
 <?php
 
-function createSlotDay($day)
+function createDateDay($day)
 {
     //$day = new DateTime($day);
     $array = [];
 
     date_time_set($day, 7, 0, 0);
     array_push($array, date_format($day, 'Y-m-d H:i:s'));
-    for ($i = 0; $i < 2; $i++) {
+    for ($i = 0; $i < 12; $i++) {
         $day->modify("+1 hours");
         array_push($array, date_format($day, 'Y-m-d H:i:s'));
     }
-    $day->modify("+6 hours");
+    /*$day->modify("+6 hours");
     for ($i = 0; $i < 4; $i++) {
         $day->modify("+1 hours");
         array_push($array, date_format($day, 'Y-m-d H:i:s'));
-    }
+    }*/
 
     /*$int = 0;
     foreach ($array as $value) {
@@ -27,11 +27,11 @@ function createSlotDay($day)
 
 function createDateWeek($dateStart)
 {
-    $dateStart = new DateTime($dateStart);
+    //$dateStart = new DateTime($dateStart);
     $dates = [];
 
     for ($i = 0; $i < 7; $i++) {
-        $temp = createSlotDay($dateStart);
+        $temp = createDateDay($dateStart);
         foreach ($temp as $value) {
             array_push($dates, $value);
         }
@@ -45,30 +45,41 @@ function createDateWeek($dateStart)
     return $dates;
 }
 
+function createDateMonth($dateStart)
+{
+    $dateStart = new DateTime($dateStart);
+    $dates = [];
 
-//identifier le nom de base de données
-$database = "push_n_pool";
-//connectez-vous dans votre BDD
-//Rappel : votre serveur = localhost | votre login = root | votre mot de pass = '' (rien)
-$db_handle = mysqli_connect('localhost', 'root', 'romain2504');
-$db_found = mysqli_select_db($db_handle, $database);
-//si le BDD existe, faire le traitement
-if ($db_found) {
-    createDateWeek($_POST["date1"]);
+    for ($i = 0; $i < 4; $i++) {
+        $temp = createDateWeek($dateStart);
+        foreach ($temp as $value) {
+            array_push($dates, $value);
+        }
+        //$dateStart->modify("+1 weeks");
+    }
+    $int = 0;
+    foreach ($dates as $value) {
+        $int = $int + 1;
+        echo "le " . $int . " -> " . $value . "<br>";
+    }
+    return $dates;
+}
 
-    $sql = "SELECT * FROM person ";
-    $result = mysqli_query($db_handle, $sql);
-    while ($data = mysqli_fetch_assoc($result)) {
-        echo "ID: " . $data['idPerson'] . '<br>';
-        echo "Nom:" . $data['Name'] . '<br>';
-        echo "Prénom: " . $data['Surname'] . '<br>';
-        echo "email: " . $data['Email'] . '<br>';
-    } //end while
+try {
+    // On se connecte à MySQL
+    $mysqlClient = new PDO('mysql:host=localhost;dbname=push_n_pool;charset=utf8', 'root', 'romain2504');
+} catch (Exception $e) {
+    // En cas d'erreur, on affiche un message et on arrête tout
+    die('Erreur : ' . $e->getMessage());
+}
 
-} //end if
-//si le BDD n'existe pas
-else {
-    echo "Database not found";
-} //end else
-//fermer la connection
-mysqli_close($db_handle);
+// Si tout va bien, on peut continuer
+$dates = createDateMonth($_POST["date1"]);
+
+foreach ($dates as $date) {
+    $sqlQuery = 'INSERT INTO date(dateCol) value (:date)';
+    $statement = $mysqlClient->prepare($sqlQuery);
+    $statement->execute([
+        'date' => $date,
+    ]);
+}
