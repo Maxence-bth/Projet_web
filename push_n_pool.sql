@@ -18,30 +18,6 @@ USE `push_n_pool`;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `activity`
---
-
-DROP TABLE IF EXISTS `activity`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `activity` (
-  `idActivity` int NOT NULL AUTO_INCREMENT,
-  `Name` varchar(45) NOT NULL,
-  PRIMARY KEY (`idActivity`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `activity`
---
-
-LOCK TABLES `activity` WRITE;
-/*!40000 ALTER TABLE `activity` DISABLE KEYS */;
-INSERT INTO `activity` VALUES (1,'Fitness');
-/*!40000 ALTER TABLE `activity` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `appointments`
 --
 
@@ -69,6 +45,7 @@ CREATE TABLE `appointments` (
 
 LOCK TABLES `appointments` WRITE;
 /*!40000 ALTER TABLE `appointments` DISABLE KEYS */;
+INSERT INTO `appointments` VALUES (1,2,1,41),(2,2,1,43);
 /*!40000 ALTER TABLE `appointments` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -110,12 +87,10 @@ DROP TABLE IF EXISTS `coach`;
 CREATE TABLE `coach` (
   `idCoach` int NOT NULL AUTO_INCREMENT,
   `Office` varchar(45) DEFAULT NULL,
-  `Activity` int NOT NULL,
+  `Activity` varchar(45) NOT NULL,
   `idPerson` int NOT NULL,
   PRIMARY KEY (`idCoach`),
   KEY `id_Person_idx` (`idPerson`),
-  KEY `idActivity_idx` (`Activity`),
-  CONSTRAINT `idActivity` FOREIGN KEY (`Activity`) REFERENCES `activity` (`idActivity`),
   CONSTRAINT `idPerson_coach` FOREIGN KEY (`idPerson`) REFERENCES `person` (`idPerson`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -126,7 +101,7 @@ CREATE TABLE `coach` (
 
 LOCK TABLES `coach` WRITE;
 /*!40000 ALTER TABLE `coach` DISABLE KEYS */;
-INSERT INTO `coach` VALUES (1,'p230',1,3);
+INSERT INTO `coach` VALUES (1,'p230','Fitness',3);
 /*!40000 ALTER TABLE `coach` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -215,4 +190,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-05-24 18:17:03
+-- Dump completed on 2022-05-24 18:37:48
