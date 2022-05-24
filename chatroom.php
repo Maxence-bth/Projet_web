@@ -25,11 +25,11 @@ session_start();
  function loginForm() {
  echo
  '<div id="loginform">
- <p>Veuillez saisir votre nom pour continuer!</p>
+ <p>Veuillez saisir votre nom pour continuer : </p>
  <form action="chatroom.php" method="post">
  <label for="name">Nom: </label>
  <input type="text" name="name" id="name" />
- <input type="submit" name="enter" id="enter" value="Soumettre" />
+ <input type="submit" name="enter" id="enter" value="Valider" />
  </form>
  </div>';
  }
@@ -51,7 +51,7 @@ session_start();
  <div id="wrapper">
  <div id="menu">
  <p class="welcome">Bienvenue, <b><?php echo $_SESSION['name']; ?></b></p>
- <p class="logout"><a id="exit" href="#">Quitter la conversation</a></p>
+ <p class="logout"><a id="exit" href="#">Quitter</a></p>
  </div>
  <div id="chatbox">
  <?php
@@ -71,7 +71,7 @@ session_start();
  // jQuery Document
  $(document).ready(function () {
  $("#submitmsg").click(function () {
- var clientmsg = $("#usermsg").val();
+ var clientmsg = " : " + $("#usermsg").val();
  $.post("chatroom_post.php", { text: clientmsg });
  $("#usermsg").val("");
  return false;
