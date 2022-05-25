@@ -36,7 +36,7 @@ CREATE TABLE `appointments` (
   CONSTRAINT `idClient` FOREIGN KEY (`idClient`) REFERENCES `client` (`idClient`),
   CONSTRAINT `idCoach` FOREIGN KEY (`idCoach`) REFERENCES `coach` (`idCoach`),
   CONSTRAINT `idDate` FOREIGN KEY (`idDate`) REFERENCES `date` (`idDate`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -64,7 +64,7 @@ CREATE TABLE `client` (
   PRIMARY KEY (`idClient`),
   KEY `idPerson_idx` (`idPerson`),
   CONSTRAINT `idPerson_client` FOREIGN KEY (`idPerson`) REFERENCES `person` (`idPerson`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -92,7 +92,7 @@ CREATE TABLE `coach` (
   PRIMARY KEY (`idCoach`),
   KEY `id_Person_idx` (`idPerson`),
   CONSTRAINT `idPerson_coach` FOREIGN KEY (`idPerson`) REFERENCES `person` (`idPerson`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -117,7 +117,7 @@ CREATE TABLE `date` (
   `dateCol` datetime NOT NULL,
   PRIMARY KEY (`idDate`),
   UNIQUE KEY `Datecol_UNIQUE` (`dateCol`)
-) ENGINE=InnoDB AUTO_INCREMENT=372 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=372 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -142,7 +142,7 @@ CREATE TABLE `payments` (
   `amount` int DEFAULT NULL,
   `object` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`idPayments`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -168,7 +168,7 @@ CREATE TABLE `person` (
   `Email` varchar(45) NOT NULL,
   PRIMARY KEY (`idPerson`),
   UNIQUE KEY `idPerson_UNIQUE` (`idPerson`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
