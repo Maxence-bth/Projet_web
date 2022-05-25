@@ -32,7 +32,7 @@
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                   <li><a class="dropdown-item" href="compte.html">Se connecter</a></li>
-                  <li><a class="dropdown-item" href="compte.html">S'inscrire</a></li>
+                  <li><a class="dropdown-item" href="inscription.html">S'inscrire</a></li>
                   <li><hr class="dropdown-divider"></li>
                   <li><a class="dropdown-item" href="chatroom.php">Chatroom</a></li>
                   <li><hr class="dropdown-divider"></li>
@@ -41,9 +41,9 @@
               </li>
   
             </ul>
-            <form class="d-flex">
-              <input class="form-control me-2" type="search" placeholder="Rechercher" aria-label="Search">
-              <button class="btn btn-outline-success" type="submit">Rechercher</button>
+            <form class="d-flex" action="recherche.php" method="get">
+              <input class="form-control me-2" type="search" placeholder="Rechercher" aria-label="Search" name="rechercheStr">
+              <button class="btn btn-outline-success" type="submit" value="Rechercher" name="submitBtn">Rechercher</button>
             </form>
           </div>
         </div>
