@@ -1,7 +1,5 @@
 <?php
 
-use LDAP\Result;
-
 function rechercher($recherche)
 {
     $recherche = htmlspecialchars($recherche); //pour sécuriser le formulaire contre les failles html

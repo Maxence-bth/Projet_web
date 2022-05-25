@@ -1,0 +1,18 @@
+body{
+    background-image: url("images/piscine.png");
+}
+
+#title{
+    text-align: center;
+  }
+
+fieldset{
+    margin-left: 43%;
+    background-color: #40463E;
+    height: 500px
+    
+}
+
+form{ 
+    margin-left: 37%;
+}

@@ -1,4 +1,9 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
+
 <html>
   <head>
     <title>Activités sportives</title>
@@ -8,9 +13,9 @@
     <link rel="stylesheet" text="text/css" href="activites.css">
   </head>
   <body>
+
+
     <br>
-
-
     <div id ="title"><p> <img src="images/title.png" alt="erreur" width="400" height="100"></p></div>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
@@ -55,61 +60,86 @@
      <div class="row row-cols-1 row-cols-md-3 g-4">
         <div class="col">
           <div class="card h-100">
-            <img src="images/basket.jpg" class="card-img-top" alt="erreur" width="300" height="200">
+            <img src="images/cardio.jpg" class="card-img-top" alt="erreur" width="300" height="200">
             <div class="card-body">
-              <h5 class="card-title">BASKETBALL</h5>
-              <p class="card-text">Si tu veux devenir aussi fort que Mickeal Jordan et remporter tout tes matchs, alors viens t'inscrire dans l'équipe de basketball.</p>
-              <a href="activites.html"><img src="images/reserver.png" alt="erreur" width="150" height="40"/></a>
+              <h5 class="card-title">CARDIO-TRAINING</h5>
+              <p class="card-text">La salle de sport dispose de plusieurs appareils d'<strong>entrainement cardio</strong>. Les coachs vous proposent plusieurs types de séances. Ils s'adapteront à votre niveau.<br><br>
+              <?php 
+              if($_SESSION != null){
+                echo "<a href='activites.php'><img src='images/reserver.png' alt='erreur' width='150' height='40'/></a>";///METTRE LE CALENDIRER LA
+              }else
+              {
+                echo "<a href='Connexion.php'><img src='images/reserver.png' alt='erreur' width='150' height='40'/></a>";
+              }
+              ?>
             </div>
           </div>
         </div>
         <div class="col">
           <div class="card h-100">
-            <img src="images/compete.jpg" class="card-img-top" alt="erreur" width="300" height="200">
+            <img src="images/biking.jpg" class="card-img-top" alt="erreur" width="300" height="200">
             <div class="card-body">
-              <h5 class="card-title">FOOTBALL</h5>
-              <p class="card-text">Retrouve ici le meilleur entraineur de football de la région et devient un joueur pro grâce à notre coach.</p>
-              <a href="activites.html"><img src="images/reserver.png" alt="erreur" width="150" height="40"/></a>
+              <h5 class="card-title">BIKING</h5>
+              <p class="card-text">La salle possède aussi des vélos pour faire du <strong>Biking</strong> avec des coachs qui sauront vous faire transpirer. </p>
+              <?php 
+              if($_SESSION != null){
+                echo "<a href='activites.php'><img src='images/reserver.png' alt='erreur' width='150' height='40'/></a>";///METTRE LE CALENDIRER LA
+              }else
+              {
+                echo "<a href='Connexion.php'><img src='images/reserver.png' alt='erreur' width='150' height='40'/></a>";
+              }
+              ?>
             </div>
           </div>
         </div>
         <div class="col">
           <div class="card h-100">
-            <img src="images/rugby.jpg" class="card-img-top" alt="erreur" width="300" height="200">
+            <img src="images/muscu.jpg" class="card-img-top" alt="erreur" width="300" height="200">
             <div class="card-body">
-              <h5 class="card-title">RUGBY</h5>
-              <p class="card-text">Dans cette section, tu pourras t'entrainer avec un incroyable coach qui fera de toi une machine du rugby.</p>
-              <a href="activites.html"><img src="images/reserver.png" alt="erreur" width="150" height="40"/></a>
+              <h5 class="card-title">MUSCULATION</h5>
+              <p class="card-text">Vous aussi vous voulez des aussi <strong>gros muscles</strong>  que Romain, et bien c'est par ici que ca se passe. Prenez rendez-vous avec un coach et il vous rendra plus fort que jamais</p>
+              <?php 
+              if($_SESSION != null){
+                echo "<a href='activites.php'><img src='images/reserver.png' alt='erreur' width='150' height='40'/></a>";///METTRE LE CALENDIRER LA
+              }else
+              {
+                echo "<a href='Connexion.php'><img src='images/reserver.png' alt='erreur' width='150' height='40'/></a>";
+              }
+              ?>
             </div>
           </div>
         </div>
         <div class="col">
             <div class="card h-100">
-                <img src="images/tennis.jpg" class="card-img-top" alt="erreur" width="300" height="200">
+                <img src="images/collectif.jpg" class="card-img-top" alt="erreur" width="300" height="200">
               <div class="card-body">
-                <h5 class="card-title">TENNIS</h5>
-                <p class="card-text">Certe Nadal >> Roger mais ca te dit pas devenir comme eux ? Alors rejoins notre cours de Tennis et vient t'entrainer avec notre super coach. </p>
-                <a href="activites.html"><img src="images/reserver.png" alt="erreur" width="150" height="40"/></a>
+                <h5 class="card-title">COURS COLLECTIFS</h5>
+                <p class="card-text">Marre d'être seul chez toi ? Ou seul à la salle ? Venez vous <strong>dépenser</strong> avec nos coachs de qualité et render jaloux vos amis</p>
+                <?php 
+              if($_SESSION != null){
+                echo "<a href='activites.php'><img src='images/reserver.png' alt='erreur' width='150' height='40'/></a>";///METTRE LE CALENDIRER LA
+              }else
+              {
+                echo "<a href='Connexion.php'><img src='images/reserver.png' alt='erreur' width='150' height='40'/></a>";
+              }
+              ?>
               </div>
             </div>
           </div>
           <div class="col">
             <div class="card h-100">
-                <img src="images/natation.jpg" class="card-img-top" alt="erreur" width="300" height="200">
+                <img src="images/fitness.jpg" class="card-img-top" alt="erreur" width="300" height="200">
               <div class="card-body">
-                <h5 class="card-title">NATATION</h5>
-                <p class="card-text">C'est ici que tu vas devenir un nageur professionnel, tout ce qu'il te reste à faire c'est prendre rendez-vous avec nos coachs.</p>
-                <a href="activites.html"><img src="images/reserver.png" alt="erreur" width="150" height="40"/></a>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card h-100">
-                <img src="images/plongeon.jpg" class="card-img-top" alt="erreur" width="300" height="200">
-              <div class="card-body">
-                <h5 class="card-title">PLONGEON</h5>
-                <p class="card-text">Marre de faire des plats et rentrer à la maison avec des rougeurs ? C'est avec notre coach que tu apprendras à faire des super plongeons.</p>
-                <a href="activites.html"><img src="images/reserver.png" alt="erreur" width="150" height="40"/></a>
+                <h5 class="card-title">FITNESS</h5>
+                <p class="card-text">Tu veux bouger au rythme de tes musiques préférées et avoir un <strong>corps de dieu</strong>, alors c'est avec nos coachs de fintess que tu vas atteindre ton objectif</p>
+                <?php 
+              if($_SESSION != null){
+                echo "<a href='activites.php'><img src='images/reserver.png' alt='erreur' width='150' height='40'/></a>";///METTRE LE CALENDIRER LA
+              }else
+              {
+                echo "<a href='Connexion.php'><img src='images/reserver.png' alt='erreur' width='150' height='40'/></a>";
+              }
+              ?>
               </div>
             </div>
           </div>
