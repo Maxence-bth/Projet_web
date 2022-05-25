@@ -1,15 +1,15 @@
 <?php
 
-if (isset($_GET["rechercheStr"]) && $_GET["submitBtn"] == "Rechercher") {
-    $recherche = htmlspecialchars($_GET["rechercheStr"]); //pour sécuriser le formulaire contre les failles html
-    //$recherche = $_GET(['rechercheStr']);
+function rechercher($recherche)
+{
+    $recherche = htmlspecialchars($recherche); //pour sécuriser le formulaire contre les failles html
     $recherche = strip_tags($recherche); //pour supprimer les balises html dans la requête
     $recherche = preg_replace(array('/\s{2,}/', '/[\t\n]/'), ' ', $recherche); //supprime les espaces, retour a la ligne et tabulation
-    echo $recherche . "--<br>";
+    //echo $recherche . "--<br>";
     $recherches = explode(" ", $recherche);
-    foreach ($recherches as $recherche) {
+    /*foreach ($recherches as $recherche) {
         echo "  --" . $recherche . "--<br>";
-    }
+    }*/
 
     try {
         // On se connecte à MySQL
@@ -22,8 +22,8 @@ if (isset($_GET["rechercheStr"]) && $_GET["submitBtn"] == "Rechercher") {
     $results = [];
     foreach ($recherches as $r) { //test les noms et prenoms
         $sqlQuery = "select * from person inner join coach on 
-        ((person.Name=:data or person.Surname=:data) and coach.idPerson = person.idPerson) or 
-        (person.idPerson = coach.idPerson and coach.Activity = :data)";
+            ((person.Name=:data or person.Surname=:data) and coach.idPerson = person.idPerson) or 
+            (person.idPerson = coach.idPerson and coach.Activity = :data)";
         $statement = $mysqlClient->prepare($sqlQuery);
         $statement->execute([
             'data' => $r,
@@ -34,11 +34,32 @@ if (isset($_GET["rechercheStr"]) && $_GET["submitBtn"] == "Rechercher") {
 
     $i = 0;
     echo '
-    <select class="form-select" multiple aria-label="multiple select example">
-        <option selected>Open this select menu</option>';
+        <select class="form-select" multiple aria-label="multiple select results" size="10">
+            <option selected>Open this select menu</option>';
     foreach ($results as $res) {
         $i++;
-        echo "<option value=$i>One</option>";
+        echo "<option value=$i>" . $res['Name'] . " " . $res['Surname'] . " -- Activity : " . $res['Activity'] . "</option>";
     }
     echo "</select>";
 }
+?>
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Exemple Result</title>
+    <link rel="stylesheet" href="chatroom.css" />
+</head>
+
+<body>
+    <?php
+    if (isset($_GET["rechercheStr"]) && $_GET["submitBtn"] == "Rechercher") {
+        rechercher($_GET["rechercheStr"]);
+    }
+    ?>
+
+</body>
+
+</html>
