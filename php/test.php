@@ -1,4 +1,18 @@
+<select class="form-select" aria-label="Default select example">
+    <option selected>Open this select menu</option>
+    <option value="1">One</option>
+    <option value="2">Two</option>
+    <option value="3">Three</option>
+</select>
+
+
 <?php
+<<<<<<< Updated upstream
+=======
+/*header('Location: http://localhost/ING3%20web/Projet/Projet_web/signInForm.html');
+exit();
+
+>>>>>>> Stashed changes
 //identifier le nom de base de données
 $database = "push_n_pool";
 //connectez-vous dans votre BDD
