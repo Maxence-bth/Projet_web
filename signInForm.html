@@ -2,43 +2,46 @@
 <html>
   <head>
     <meta charset="utf-8" />
+    <link rel="stylesheet" text="text/css" href="signInForm.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css">
+    
   </head>
   <body>
  <h1>Inscription</h1>
     <form action="createAccountClient.php" method="post">
-      <table>
-        
-        <tr>
-          <td>Nom :</td>
-          <td><input type="text" name="nom" /></td>
-        </tr>
-        <tr>
-            <td>Prenom :</td>
-            <td><input type="text" name="prenom" /></td>
-          </tr>
-          <tr>
-            <td>Mot de passe :</td>
-            <td><input type="password" name="password" /></td>
-          </tr>
-        <tr>
-            <td>Email :</td>
-            <td><input type="text" name="mail" /></td>
-          </tr>
-          <tr>
-            <td>Adresse :</td>
-            <td><input type="text" name="adresse" /></td>
-          </tr>
-          <tr>
-            <td>Numero de carte étudiant</td>
-            <td><input type="text" name="numEtudiant" /></td>
-          
-          <td colspan="2" align="left">
-              
-            <input type="submit" value="Soumettre" name="Valider" />
-          </td>
-        </tr>
-      </table>
-    </form>
-    <div id="errordiv"></div>
+
+      
+      <form class="row g-3">
+        <div class="col-md-6">
+          <label for="nom" class="form-label">Nom</label>
+          <input type="text" class="form-control" name="nom">
+        </div>
+        <div class="col-md-6">
+          <label for="prenom" class="form-label">Prénom</label>
+          <input type="text" class="form-control" name="prenom">
+        </div>
+        <div class="col-md-6">
+          <label for="mail" class="form-label">Email</label>
+          <input type="email" class="form-control" name="mail">
+        </div>
+        <div class="col-md-6">
+          <label for="password" class="form-label">Mot de passe</label>
+          <input type="password" class="form-control" id="password">
+        </div>
+        <div class="col-md-6">
+          <label for="adresse" class="form-label">Adresse</label>
+          <input type="text" class="form-control" name="adresse">
+        </div>
+        <div class="col-md-6">
+          <label for="numEtudiant" class="form-label">N° Carte étudiant</label>
+          <input type="text" class="form-control" name="numEtudiant">
+        </div>
+        <br>
+        <div class="col-12">
+          <button type="submit" class="btn btn-primary">Valider</button>
+        </div>
+      </form>
+      <div id="errordiv"></div>
   </body>
 </html>
