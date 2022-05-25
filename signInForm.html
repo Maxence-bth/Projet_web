@@ -8,40 +8,43 @@
     
   </head>
   <body>
- <h1>Inscription</h1>
+    <br>
+    <div id ="title"><p> <img src="images/title.png" alt="erreur" width="400" height="100"></p></div>
     <form action="createAccountClient.php" method="post">
 
-      
+           
       <form class="row g-3">
-        <div class="col-md-6">
-          <label for="nom" class="form-label">Nom</label>
-          <input type="text" class="form-control" name="nom">
-        </div>
-        <div class="col-md-6">
-          <label for="prenom" class="form-label">Prénom</label>
-          <input type="text" class="form-control" name="prenom">
-        </div>
-        <div class="col-md-6">
-          <label for="mail" class="form-label">Email</label>
-          <input type="email" class="form-control" name="mail">
-        </div>
-        <div class="col-md-6">
-          <label for="password" class="form-label">Mot de passe</label>
-          <input type="password" class="form-control" id="password">
-        </div>
-        <div class="col-md-6">
-          <label for="adresse" class="form-label">Adresse</label>
-          <input type="text" class="form-control" name="adresse">
-        </div>
-        <div class="col-md-6">
-          <label for="numEtudiant" class="form-label">N° Carte étudiant</label>
-          <input type="text" class="form-control" name="numEtudiant">
+        <div class="col-sm-3">
+         
+          <input type="text" class="form-control" name="nom" placeholder="Nom">
+        </div><br>
+        <div class="col-sm-3">
+         
+          <input type="text" class="form-control" name="prenom" placeholder="Prénom">
+        </div><br>
+        <div class="col-sm-3">
+     
+          <input type="email" class="form-control" name="mail" placeholder="Email">
+        </div><br>
+        <div class="col-sm-3">
+          
+          <input type="password" class="form-control" id="password"placeholder="Mot de passe">
+        </div><br>
+        <div class="col-sm-3">
+         
+          <input type="text" class="form-control" name="adresse" placeholder="Adresse">
+        </div><br>
+        <div class="col-sm-3">
+          
+          <input type="text" class="form-control" name="numEtudiant" placeholder="N° Carte étudiant">
         </div>
         <br>
         <div class="col-12">
-          <button type="submit" class="btn btn-primary">Valider</button>
+          <button type="submit" class="btn btn-outline-danger">Valider</button>
         </div>
       </form>
       <div id="errordiv"></div>
+
+
   </body>
 </html>
