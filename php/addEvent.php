@@ -3,16 +3,16 @@
 $title = $_POST['title'];
 $start = $_POST['start'];
 $end = $_POST['end'];
-echo "----" . $title . "<br>" . $start . "<br>" . $end;
-/* 
+//echo "----" . $title . "<br>" . $start . "<br>" . $end;
+
 // connexion à la base de données
- try {
- $bdd = new PDO('mysql:host=localhost;dbname=fullcalendar', 'root', '');
- } catch(Exception $e) {
- exit('Impossible de se connecter à la base de données.');
- }
- 
-$sql = "INSERT INTO evenement (title, start, end) VALUES (:title, :start, :end)";
+try {
+    $bdd = new PDO('mysql:host=localhost;dbname=fullcalendar', 'root', '');
+} catch (Exception $e) {
+    exit('Impossible de se connecter à la base de données.');
+}
+
+$sql = "INSERT INTO appointments (idClient, idCoach, idDate) VALUES (:idClient, :idCoach, :idDate)";
 $q = $bdd->prepare($sql);
-$q->execute(array(':title'=>$title, ':start'=>$start, ':end'=>$end));
-*/
+//$q->execute(array(':idClient' => $idClient, ':idCoach' => $idCoach, ':idDate' => $idDate));
+$q->execute(array(':idClient' => 2, ':idCoach' => 1, ':idDate' => 45));

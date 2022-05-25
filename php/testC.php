@@ -20,6 +20,7 @@
           right: 'agendaDay',
         },
         initialView: 'timeGridWeek', //vue weekly
+        events: 'dateJson.php',
         selectable: true,
         selectMirror: true,
         allDaySlot: false,
@@ -81,7 +82,6 @@
                             alert("Added Successfully");
                           }
                         })*/
-
           });
           calendar.unselect();
         },
@@ -90,7 +90,6 @@
             arg.event.remove();
           }
         },
-        events: 'dateJson.php',
       });
 
       calendar.render();

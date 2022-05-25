@@ -7,20 +7,15 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.1 .1/moment.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.min.js"></script>
     <script>
         $(document).ready(function() {
             var calendar = $('#calendar').fullCalendar({
-                header: { //bouttons de navigation en haut
-                    left: 'prev,next',
-                    center: 'title',
-                    right: 'agendaDay',
-                },
+                initialView: 'timeGridDay', //vue weekly
                 events: 'dateJson.php',
-                initialView: 'timeGridWeek', //vue weekly
                 selectable: true,
-                selectMirror: true,
+                //selectMirror: true,
                 allDaySlot: false,
                 slotDuration: '01:00:00', //crénaux de 60 minutes
                 aspectRatio: 2, //taille du calendrier dans la page
@@ -63,8 +58,8 @@
 
                     var start = $.fullCalendar.formatDate(start, "Y-MM-DD HH:mm:ss");
                     var end = $.fullCalendar.formatDate(end, "Y-MM-DD HH:mm:ss");
-                    /*$.ajax({
-                        url = 'add_events.php',
+                    $.ajax({
+                        url: 'addEvent.php',
                         type: "POST",
                         data: {
                             title: (_title ? _title : "occupied"),
@@ -75,7 +70,7 @@
                             calendar.fullCalendar('refetchEvents');
                             alert("Added Successfully");
                         }
-                    })*/
+                    })
 
                 },
                 eventClick: function(event) {
@@ -95,7 +90,6 @@
                         })*/
                     }
                 },
-
             });
         });
     </script>
@@ -115,9 +109,6 @@
 </head>
 
 <body>
-    <br />
-    <h2 align="center"><a href="#">Jquery Fullcalandar Integration with PHP and Mysql</a></h2>
-    <br />
     <div class="container">
         <div id="calendar"></div>
     </div>
