@@ -27,5 +27,5 @@ if($data != null)
 mysqli_close($db_handle);
 ?>
 <html>
-    <a href='Connexion.php'>revenir a la page d'acceuil</a>
+    <a href='index.html'>revenir a la page d'acceuil</a>
 </html>

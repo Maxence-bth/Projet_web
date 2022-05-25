@@ -26,7 +26,7 @@ $numEtudiant = isset($_POST["numEtudiant"])? $_POST["numEtudiant"] : "";
 $password = isset($_POST["password"])? $_POST["password"] : "";
 
 
-$db_handle = mysqli_connect('localhost:3306/push_n_pool', 'root', 'maxou2001');
+$db_handle = mysqli_connect('localhost:3306/push_n_pool', 'root', '');
 $db_found = mysqli_select_db($db_handle, "push_n_pool");
 
 // "INSERT INTO societedhonneur (ID,Prenom,Nom,DateAdhesion,Poste,Majeure,MoyenneCummulative,PaysEtudeInterl) VALUES (110, 'Manolo', 'Hina', '2018-03-15', 'VP_CONF', 'Information', 18.15, 'Canada')";
@@ -39,7 +39,7 @@ if($db_found){
 mysqli_close($db_handle);
 
 
-$db_handle = mysqli_connect('localhost:3306/push_n_pool', 'root', 'maxou2001');
+$db_handle = mysqli_connect('localhost:3306/push_n_pool', 'root', '');
 $db_found = mysqli_select_db($db_handle, "push_n_pool");
 $ID=0;
 if($db_found){
@@ -58,7 +58,7 @@ if($db_found){
 mysqli_close($db_handle);
 
 
-$db_handle = mysqli_connect('localhost:3306/push_n_pool', 'root', 'maxou2001');
+$db_handle = mysqli_connect('localhost:3306/push_n_pool', 'root', '');
 $db_found = mysqli_select_db($db_handle, "push_n_pool");
 
 

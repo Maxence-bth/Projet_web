@@ -1,4 +1,9 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
+
 <html>
   <head>
     <title>Activités sportives</title>
@@ -59,7 +64,14 @@
             <div class="card-body">
               <h5 class="card-title">CARDIO-TRAINING</h5>
               <p class="card-text">La salle de sport dispose de plusieurs appareils d'<strong>entrainement cardio</strong>. Les coachs vous proposent plusieurs types de séances. Ils s'adapteront à votre niveau.<br><br>
-              <a href="activites.html"><img src="images/reserver.png" alt="erreur" width="150" height="40"/></a>
+              <?php 
+              if($_SESSION != null){
+                echo "<a href='activites.php'><img src='images/reserver.png' alt='erreur' width='150' height='40'/></a>";///METTRE LE CALENDIRER LA
+              }else
+              {
+                echo "<a href='Connexion.php'><img src='images/reserver.png' alt='erreur' width='150' height='40'/></a>";
+              }
+              ?>
             </div>
           </div>
         </div>
@@ -69,7 +81,14 @@
             <div class="card-body">
               <h5 class="card-title">BIKING</h5>
               <p class="card-text">La salle possède aussi des vélos pour faire du <strong>Biking</strong> avec des coachs qui sauront vous faire transpirer. </p>
-              <a href="activites.html"><img src="images/reserver.png" alt="erreur" width="150" height="40"/></a>
+              <?php 
+              if($_SESSION != null){
+                echo "<a href='activites.php'><img src='images/reserver.png' alt='erreur' width='150' height='40'/></a>";///METTRE LE CALENDIRER LA
+              }else
+              {
+                echo "<a href='Connexion.php'><img src='images/reserver.png' alt='erreur' width='150' height='40'/></a>";
+              }
+              ?>
             </div>
           </div>
         </div>
@@ -79,7 +98,14 @@
             <div class="card-body">
               <h5 class="card-title">MUSCULATION</h5>
               <p class="card-text">Vous aussi vous voulez des aussi <strong>gros muscles</strong>  que Romain, et bien c'est par ici que ca se passe. Prenez rendez-vous avec un coach et il vous rendra plus fort que jamais</p>
-              <a href="activites.html"><img src="images/reserver.png" alt="erreur" width="150" height="40"/></a>
+              <?php 
+              if($_SESSION != null){
+                echo "<a href='activites.php'><img src='images/reserver.png' alt='erreur' width='150' height='40'/></a>";///METTRE LE CALENDIRER LA
+              }else
+              {
+                echo "<a href='Connexion.php'><img src='images/reserver.png' alt='erreur' width='150' height='40'/></a>";
+              }
+              ?>
             </div>
           </div>
         </div>
@@ -89,7 +115,14 @@
               <div class="card-body">
                 <h5 class="card-title">COURS COLLECTIFS</h5>
                 <p class="card-text">Marre d'être seul chez toi ? Ou seul à la salle ? Venez vous <strong>dépenser</strong> avec nos coachs de qualité et render jaloux vos amis</p>
-                <a href="activites.html"><img src="images/reserver.png" alt="erreur" width="150" height="40"/></a>
+                <?php 
+              if($_SESSION != null){
+                echo "<a href='activites.php'><img src='images/reserver.png' alt='erreur' width='150' height='40'/></a>";///METTRE LE CALENDIRER LA
+              }else
+              {
+                echo "<a href='Connexion.php'><img src='images/reserver.png' alt='erreur' width='150' height='40'/></a>";
+              }
+              ?>
               </div>
             </div>
           </div>
@@ -99,7 +132,14 @@
               <div class="card-body">
                 <h5 class="card-title">FITNESS</h5>
                 <p class="card-text">Tu veux bouger au rythme de tes musiques préférées et avoir un <strong>corps de dieu</strong>, alors c'est avec nos coachs de fintess que tu vas atteindre ton objectif</p>
-                <a href="activites.html"><img src="images/reserver.png" alt="erreur" width="150" height="40"/></a>
+                <?php 
+              if($_SESSION != null){
+                echo "<a href='activites.php'><img src='images/reserver.png' alt='erreur' width='150' height='40'/></a>";///METTRE LE CALENDIRER LA
+              }else
+              {
+                echo "<a href='Connexion.php'><img src='images/reserver.png' alt='erreur' width='150' height='40'/></a>";
+              }
+              ?>
               </div>
             </div>
           </div>
