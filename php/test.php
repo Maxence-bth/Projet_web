@@ -1,4 +1,9 @@
 <?php
+header('Location: http://localhost/ING3%20web/Projet/Projet_web/signInForm.html');
+exit();
+
+
+/*
 //identifier le nom de base de données
 $database = "push_n_pool";
 //connectez-vous dans votre BDD

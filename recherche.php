@@ -1,9 +1,15 @@
 <?php
-$recherche = $_GET(['rechercheStr']);
 
-if (isset($_GET["rechercheStr"]) and $_GET["submitBtn"] == "Rechercher") {
-    $_GET["rechercheStr"] = htmlspecialchars($_GET["rechercheStr"]);
-    $recherche = $_GET(['rechercheStr']);
+if (isset($_GET["rechercheStr"]) && $_GET["submitBtn"] == "Rechercher") {
+    $recherche = htmlspecialchars($_GET["rechercheStr"]); //pour sécuriser le formulaire contre les failles html
+    //$recherche = $_GET(['rechercheStr']);
+    $recherche = strip_tags($recherche); //pour supprimer les balises html dans la requête
+    $recherche = preg_replace(array('/\s{2,}/', '/[\t\n]/'), ' ', $recherche); //supprime les espaces, retour a la ligne et tabulation
+    echo $recherche . "--<br>";
+    $recherches = explode(" ", $recherche);
+    foreach ($recherches as $recherche) {
+        echo "  --" . $recherche . "--<br>";
+    }
 
     try {
         // On se connecte à MySQL
@@ -13,14 +19,26 @@ if (isset($_GET["rechercheStr"]) and $_GET["submitBtn"] == "Rechercher") {
         die('Erreur : ' . $e->getMessage());
     }
 
-    // Si tout va bien, on peut continuer et on teste la valeur de la recherche, d'abord avec si c'est un nom
-    try {
-        $sqlQuery = 'SELECT * FROM person WHERE Name = :name';
+    $results = [];
+    foreach ($recherches as $r) { //test les noms et prenoms
+        $sqlQuery = "select * from person inner join coach on 
+        ((person.Name=:data or person.Surname=:data) and coach.idPerson = person.idPerson) or 
+        (person.idPerson = coach.idPerson and coach.Activity = :data)";
         $statement = $mysqlClient->prepare($sqlQuery);
         $statement->execute([
-            'name' => $recherche,
+            'data' => $r,
         ]);
-    } catch (Exception $e) {
-        echo "Erreur de recherche pour : " . $recherche . " <br> erreur : " . $e->getMessage();
+        $temp = $statement->fetchAll();
+        $results = array_merge($results, $temp);
     }
+
+    $i = 0;
+    echo '
+    <select class="form-select" multiple aria-label="multiple select example">
+        <option selected>Open this select menu</option>';
+    foreach ($results as $res) {
+        $i++;
+        echo "<option value=$i>One</option>";
+    }
+    echo "</select>";
 }
