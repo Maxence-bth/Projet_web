@@ -47,7 +47,7 @@
 <?php
 
 
-$activity = "Biking";//mettre la l'activiter a differencier quand on click
+$activity = "Fitness";//mettre la l'activiter a differencier quand on click
 
 
 //recup l'id de l'activiter
