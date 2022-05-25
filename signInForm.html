@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+  </head>
+  <body>
+ <h1>Inscription</h1>
+    <form action="createAccountClient.php" method="post">
+      <table>
+        
+        <tr>
+          <td>Nom :</td>
+          <td><input type="text" name="nom" /></td>
+        </tr>
+        <tr>
+            <td>Prenom :</td>
+            <td><input type="text" name="prenom" /></td>
+          </tr>
+       
+        <tr>
+            <td>Email :</td>
+            <td><input type="text" name="mail" /></td>
+          </tr>
+          <tr>
+            <td>Adresse :</td>
+            <td><input type="text" name="adresse" /></td>
+          </tr>
+          <tr>
+            <td>Numero de carte étudiant</td>
+            <td><input type="text" name="numEtudiant" /></td>
+          
+          <td colspan="2" align="left">
+              
+            <input type="submit" value="Soumettre" name="Valider" />
+          </td>
+        </tr>
+      </table>
+    </form>
+    <div id="errordiv"></div>
+  </body>
+</html>
