@@ -2,43 +2,53 @@
 <html>
   <head>
     <meta charset="utf-8" />
+    <link rel="stylesheet" text="text/css" href="signInForm.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css">
+    
   </head>
   <body>
- <h1>Inscription</h1>
-    <form action="createAccountClient.php" method="post">
-      <table>
-        
-        <tr>
-          <td>Nom :</td>
-          <td><input type="text" name="nom" /></td>
-        </tr>
-        <tr>
-            <td>Prenom :</td>
-            <td><input type="text" name="prenom" /></td>
-          </tr>
-          <tr>
-            <td>Mot de passe :</td>
-            <td><input type="password" name="password" /></td>
-          </tr>
-        <tr>
-            <td>Email :</td>
-            <td><input type="text" name="mail" /></td>
-          </tr>
-          <tr>
-            <td>Adresse :</td>
-            <td><input type="text" name="adresse" /></td>
-          </tr>
-          <tr>
-            <td>Numero de carte étudiant</td>
-            <td><input type="text" name="numEtudiant" /></td>
+    <br>
+    <div id ="title"><p> <img src="images/title.png" alt="erreur" width="400" height="100"></p></div>
+    <fieldset>
+      <br><br>
+      <form action="createAccountClient.php" method="post">
+     
+      <form class="row g-3">
+        <div class="col-sm-5">
+         
+          <input type="text" class="form-control" name="nom" placeholder="Nom">
+        </div><br>
+        <div class="col-sm-5">
+         
+          <input type="text" class="form-control" name="prenom" placeholder="Prénom">
+        </div><br>
+        <div class="col-sm-5">
+     
+          <input type="email" class="form-control" name="mail" placeholder="Email">
+        </div><br>
+        <div class="col-sm-5">
           
-          <td colspan="2" align="left">
-              
-            <input type="submit" value="Soumettre" name="Valider" />
-          </td>
-        </tr>
-      </table>
-    </form>
-    <div id="errordiv"></div>
+          <input type="password" class="form-control" id="password"placeholder="Mot de passe">
+        </div><br>
+        <div class="col-sm-5">
+         
+          <input type="text" class="form-control" name="adresse" placeholder="Adresse">
+        </div><br>
+        <div class="col-sm-5">
+          
+          <input type="text" class="form-control" name="numEtudiant" placeholder="N° Carte étudiant">
+        </div>
+        <br>
+        <div class="col-12">
+          <button type="submit" class="btn btn-outline-light">Valider</button>
+          <a href="index.html"><button type="button" class="btn btn-outline-light">Retour accueil</button></a>
+        </div>
+      </form>
+      <div id="errordiv"></div>
+    </fieldset>
+    
+
+
   </body>
 </html>
