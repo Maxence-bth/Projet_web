@@ -1,4 +1,12 @@
 
+<html>
+
+
+
+
+// CODER ICI TOUT BEAU
+
+
 <?php
 $Prenom = isset($_POST["prenom"])? $_POST["prenom"] : "";
 $nom = isset($_POST["nom"])? $_POST["nom"] : "";
@@ -55,3 +63,4 @@ mysqli_close($db_handle);
 
 
 ?>
+</html>
