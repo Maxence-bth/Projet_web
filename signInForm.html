@@ -10,40 +10,43 @@
   <body>
     <br>
     <div id ="title"><p> <img src="images/title.png" alt="erreur" width="400" height="100"></p></div>
-    <form action="createAccountClient.php" method="post">
-
-           
+    <fieldset>
+      <br><br>
+      <form action="createAccountClient.php" method="post">
+     
       <form class="row g-3">
-        <div class="col-sm-3">
+        <div class="col-sm-5">
          
           <input type="text" class="form-control" name="nom" placeholder="Nom">
         </div><br>
-        <div class="col-sm-3">
+        <div class="col-sm-5">
          
           <input type="text" class="form-control" name="prenom" placeholder="Prénom">
         </div><br>
-        <div class="col-sm-3">
+        <div class="col-sm-5">
      
           <input type="email" class="form-control" name="mail" placeholder="Email">
         </div><br>
-        <div class="col-sm-3">
+        <div class="col-sm-5">
           
           <input type="password" class="form-control" id="password"placeholder="Mot de passe">
         </div><br>
-        <div class="col-sm-3">
+        <div class="col-sm-5">
          
           <input type="text" class="form-control" name="adresse" placeholder="Adresse">
         </div><br>
-        <div class="col-sm-3">
+        <div class="col-sm-5">
           
           <input type="text" class="form-control" name="numEtudiant" placeholder="N° Carte étudiant">
         </div>
         <br>
         <div class="col-12">
-          <button type="submit" class="btn btn-outline-danger">Valider</button>
+          <button type="submit" class="btn btn-outline-light">Valider</button>
         </div>
       </form>
       <div id="errordiv"></div>
+    </fieldset>
+    
 
 
   </body>
