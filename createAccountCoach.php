@@ -2,14 +2,14 @@
 $Prenom = isset($_POST["prenom"])? $_POST["prenom"] : "";
 $nom = isset($_POST["nom"])? $_POST["nom"] : "";
 $mail = isset($_POST["mail"])? $_POST["mail"] : "";
-
+$password = isset($_POST["password"])? $_POST["password"] : "";
 
 $db_handle = mysqli_connect('localhost', 'root', '');
 $db_found = mysqli_select_db($db_handle, "push_n_pool");
 
 // "INSERT INTO societedhonneur (ID,Prenom,Nom,DateAdhesion,Poste,Majeure,MoyenneCummulative,PaysEtudeInterl) VALUES (110, 'Manolo', 'Hina', '2018-03-15', 'VP_CONF', 'Information', 18.15, 'Canada')";
 if($db_found){
-    $sql = "INSERT INTO push_n_pool.person (Name,Surname,Email) VALUES('".$nom."','".$Prenom."','".$mail."')";
+    $sql = "INSERT INTO push_n_pool.person (Name,Surname,Email,password) VALUES('".$nom."','".$Prenom."','".$mail."','".$password."')";
     $result = mysqli_query($db_handle, $sql);
 }else{
     echo "Database not found";
