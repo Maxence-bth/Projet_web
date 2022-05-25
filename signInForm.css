@@ -1,5 +1,5 @@
 body{
-    background-image: url("images/piscine.png");
+    background-image: url("images/fondinscription.png");
 }
 
 #title{
@@ -10,7 +10,6 @@ fieldset{
     margin-left: 43%;
     background-color: #40463E;
     height: 500px;
-    width: 1500px;
     
 }
 
