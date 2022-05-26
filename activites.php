@@ -66,7 +66,7 @@ session_start();
               <p class="card-text">La salle de sport dispose de plusieurs appareils d'<strong>entrainement cardio</strong>. Les coachs vous proposent plusieurs types de séances. Ils s'adapteront à votre niveau.<br><br>
               <?php 
               if($_SESSION != null){
-                echo "<a href='activites.php'><img src='images/reserver.png' alt='erreur' width='150' height='40'/></a>";///METTRE LE CALENDIRER LA
+                echo "<a href='RDVweek.html'><img src='images/reserver.png' alt='erreur' width='150' height='40'/></a>";///METTRE LE CALENDIRER LA
               }else
               {
                 echo "<a href='Connexion.php'><img src='images/reserver.png' alt='erreur' width='150' height='40'/></a>";
