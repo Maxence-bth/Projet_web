@@ -28,9 +28,11 @@ INNER JOIN coach
 INNER JOIN client
 	ON appointments.idClient = client.idClient
 INNER JOIN person
-	ON client.idPerson = person.idPerson AND person.Name = "Carpentier"';
+	ON client.idPerson = person.idPerson AND person.Name=:name';
 $statement = $mysqlClient->prepare($sqlQuery);
-$statement->execute();
+$statement->execute([
+    'name' => $_GET['name'],
+]);
 $st = $statement->fetchAll();
 
 // On affiche chaque les person une à une

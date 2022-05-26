@@ -36,21 +36,24 @@ function rechercher($recherche)
         echo '<script language="Javascript">
                 alert ("Pas de résultats" )
               </script>';
-        header('Location: http://localhost/ING3%20web/Projet/Projet_web/sallesport.html');
+        header('Location: sallesport.html');
         exit();
     }
 
     $i = 0;
-    echo '
-    <form class="d-flex" action="profil.html" method="get">
-    <select class="form-select" multiple aria-label="multiple select results" size="10" >';
+    echo "
+    <FORM action='php/testC.php' method='get'>
+    <SELECT name='name' size='5'>";
     foreach ($results as $res) {
         $i++;
-        echo "<option value=$i>" . $res['Name'] . " " . $res['Surname'] . " -- Activity : " . $res['Activity'] . "</option>";
+        if ($i == 1) //on selectionne le premier element de la liste par défault
+            echo '<option value=' . $res['Name'] . ' selected>' . $res['Name'] . ' ' . $res['Surname'] . ' -- Activity : ' . $res['Activity'] . '</option>';
+        else
+            echo '<option value=' . $res['Name'] . '>' . $res['Name'] . ' ' . $res['Surname'] . ' -- Activity : ' . $res['Activity'] . '</option>';
     }
-    echo "</select>
-    <button type='submit' value='rech' name='selectRecherche'>Rechercher</button>
-    </form>";
+    echo "</SELECT>
+    <button type='submit' value='rech'>Rechercher</button>
+    </FORM>";
 }
 ?>
 
