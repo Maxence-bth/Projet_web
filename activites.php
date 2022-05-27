@@ -71,7 +71,7 @@ session_start();
                 echo "<form action='RDVweek.php' method='get'><button type='submit' class='btn btn-outline-dark' name='activity' value='Cardio'>Réserver</button></form>";///METTRE LE CALENDIRER LA
               }else
               {
-                echo "<a href='Connexion.php'><img src='images/reserver.png' alt='erreur' width='150' height='40'/></a>";
+                echo "<a href='Connexion.php'><button type='submit' class='btn btn-outline-dark' name='activity' value='Cardio'>Réserver</button></a>";
               }
               ?>
             </div>
@@ -83,12 +83,14 @@ session_start();
             <div class="card-body">
               <h5 class="card-title">BIKING</h5>
               <p class="card-text">La salle possède aussi des vélos pour faire du <strong>Biking</strong> avec des coachs qui sauront vous faire transpirer. </p>
+              <br>
+              <br>
               <?php 
               if($_SESSION != null){
                 echo "<form action='RDVweek.php' method='get'><button type='submit' class='btn btn-outline-dark' name='activity' value='Biking'>Réserver</button></form>";///METTRE LE CALENDIRER LA
               }else
               {
-                echo "<a href='Connexion.php'><img src='images/reserver.png' alt='erreur' width='150' height='40'/></a>";
+                echo "<a href='Connexion.php'><button type='submit' class='btn btn-outline-dark' name='activity' value='Biking'>Réserver</button></a>";
               }
               ?>
             </div>
@@ -105,7 +107,7 @@ session_start();
                 echo "<form action='RDVweek.php' method='get'><button type='submit' class='btn btn-outline-dark' name='activity' value='Musculation'>Réserver</button></form>";///METTRE LE CALENDIRER LA
               }else
               {
-                echo "<a href='Connexion.php'><img src='images/reserver.png' alt='erreur' width='150' height='40'/></a>";
+                echo "<a href='Connexion.php'><button type='submit' class='btn btn-outline-dark' name='activity' value='Musculation'>Réserver</button></a>";
               }
               ?>
             </div>
@@ -117,12 +119,13 @@ session_start();
               <div class="card-body">
                 <h5 class="card-title">COURS COLLECTIFS</h5>
                 <p class="card-text">Marre d'être seul chez toi ? Ou seul à la salle ? Venez vous <strong>dépenser</strong> avec nos coachs de qualité et render jaloux vos amis</p>
+                <br>
                 <?php 
               if($_SESSION != null){
                 echo "<form action='RDVweek.php' method='get'><button type='submit' class='btn btn-outline-dark' name='activity' value='Collectif'>Réserver</button></form>";///METTRE LE CALENDIRER LA
               }else
               {
-                echo "<a href='Connexion.php'><img src='images/reserver.png' alt='erreur' width='150' height='40'/></a>";
+                echo "<a href='Connexion.php'><button type='submit' class='btn btn-outline-dark' name='activity' value='Collectif'>Réserver</button></a>";
               }
               ?>
               </div>
@@ -139,7 +142,7 @@ session_start();
                 echo "<form action='RDVweek.php' method='get'><button type='submit' class='btn btn-outline-dark' name='activity' value='Fitness'>Réserver</button></form>";///METTRE LE CALENDIRER LA
               }else
               {
-                echo "<a href='Connexion.php'><img src='images/reserver.png' alt='erreur' width='150' height='40'/></a>";
+                echo "<a href='Connexion.php'><button type='submit' class='btn btn-outline-dark' name='activity' value='Fitness'>Réserver</button></a>";
               }
               ?>
               </div>
