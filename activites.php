@@ -36,7 +36,7 @@ session_start();
                   Mon compte
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li><a class="dropdown-item" href="compte.html">Se connecter</a></li>
+                  <li><a class="dropdown-item" href="Connexion.php">Se connecter</a></li>
                   <li><a class="dropdown-item" href="inscription.html">S'inscrire</a></li>
                   <li><hr class="dropdown-divider"></li>
                   <li><a class="dropdown-item" href="chatroom.php">Chatroom</a></li>
