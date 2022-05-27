@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.1 .1/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.1.1/moment.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.min.js"></script>
     <script>
         $(document).ready(function() {
@@ -58,7 +58,7 @@
 
                     var start = $.fullCalendar.formatDate(start, "Y-MM-DD HH:mm:ss");
                     var end = $.fullCalendar.formatDate(end, "Y-MM-DD HH:mm:ss");
-                    $.ajax({
+                    /*$.ajax({
                         url: 'addEvent.php',
                         type: "POST",
                         data: {
@@ -70,7 +70,7 @@
                             calendar.fullCalendar('refetchEvents');
                             alert("Added Successfully");
                         }
-                    })
+                    })*/
 
                 },
                 eventClick: function(event) {
@@ -109,9 +109,7 @@
 </head>
 
 <body>
-    <div class="container">
-        <div id="calendar"></div>
-    </div>
+    <div id="calendar"></div>
 </body>
 
 </html>
