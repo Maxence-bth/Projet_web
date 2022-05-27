@@ -65,8 +65,10 @@ session_start();
               <h5 class="card-title">CARDIO-TRAINING</h5>
               <p class="card-text">La salle de sport dispose de plusieurs appareils d'<strong>entrainement cardio</strong>. Les coachs vous proposent plusieurs types de séances. Ils s'adapteront à votre niveau.<br><br>
               <?php 
+              //<form action='RDVweek.php' method='get'><input type='submit' name='activity' value='Cardio' src='images/reserver.png' alt='erreur' width='150' height='40'/></form>
               if($_SESSION != null){
-                echo "<a href='RDVweek.html'><img src='images/reserver.png' alt='erreur' width='150' height='40'/></a>";///METTRE LE CALENDIRER LA
+                //<button type="button" class="btn btn-outline-secondary">Réserver</button>
+                echo "<form action='RDVweek.php' method='get'><button type='submit' class='btn btn-outline-dark' name='activity' value='Cardio'>Réserver</button></form>";///METTRE LE CALENDIRER LA
               }else
               {
                 echo "<a href='Connexion.php'><img src='images/reserver.png' alt='erreur' width='150' height='40'/></a>";
@@ -83,7 +85,7 @@ session_start();
               <p class="card-text">La salle possède aussi des vélos pour faire du <strong>Biking</strong> avec des coachs qui sauront vous faire transpirer. </p>
               <?php 
               if($_SESSION != null){
-                echo "<a href='activites.php'><img src='images/reserver.png' alt='erreur' width='150' height='40'/></a>";///METTRE LE CALENDIRER LA
+                echo "<form action='RDVweek.php' method='get'><button type='submit' class='btn btn-outline-dark' name='activity' value='Biking'>Réserver</button></form>";///METTRE LE CALENDIRER LA
               }else
               {
                 echo "<a href='Connexion.php'><img src='images/reserver.png' alt='erreur' width='150' height='40'/></a>";
@@ -100,7 +102,7 @@ session_start();
               <p class="card-text">Vous aussi vous voulez des aussi <strong>gros muscles</strong>  que Romain, et bien c'est par ici que ca se passe. Prenez rendez-vous avec un coach et il vous rendra plus fort que jamais</p>
               <?php 
               if($_SESSION != null){
-                echo "<a href='activites.php'><img src='images/reserver.png' alt='erreur' width='150' height='40'/></a>";///METTRE LE CALENDIRER LA
+                echo "<form action='RDVweek.php' method='get'><button type='submit' class='btn btn-outline-dark' name='activity' value='Musculation'>Réserver</button></form>";///METTRE LE CALENDIRER LA
               }else
               {
                 echo "<a href='Connexion.php'><img src='images/reserver.png' alt='erreur' width='150' height='40'/></a>";
@@ -117,7 +119,7 @@ session_start();
                 <p class="card-text">Marre d'être seul chez toi ? Ou seul à la salle ? Venez vous <strong>dépenser</strong> avec nos coachs de qualité et render jaloux vos amis</p>
                 <?php 
               if($_SESSION != null){
-                echo "<a href='activites.php'><img src='images/reserver.png' alt='erreur' width='150' height='40'/></a>";///METTRE LE CALENDIRER LA
+                echo "<form action='RDVweek.php' method='get'><button type='submit' class='btn btn-outline-dark' name='activity' value='Collectif'>Réserver</button></form>";///METTRE LE CALENDIRER LA
               }else
               {
                 echo "<a href='Connexion.php'><img src='images/reserver.png' alt='erreur' width='150' height='40'/></a>";
@@ -134,7 +136,7 @@ session_start();
                 <p class="card-text">Tu veux bouger au rythme de tes musiques préférées et avoir un <strong>corps de dieu</strong>, alors c'est avec nos coachs de fintess que tu vas atteindre ton objectif</p>
                 <?php 
               if($_SESSION != null){
-                echo "<a href='activites.php'><img src='images/reserver.png' alt='erreur' width='150' height='40'/></a>";///METTRE LE CALENDIRER LA
+                echo "<form action='RDVweek.php' method='get'><button type='submit' class='btn btn-outline-dark' name='activity' value='Fitness'>Réserver</button></form>";///METTRE LE CALENDIRER LA
               }else
               {
                 echo "<a href='Connexion.php'><img src='images/reserver.png' alt='erreur' width='150' height='40'/></a>";

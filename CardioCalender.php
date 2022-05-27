@@ -52,7 +52,7 @@ $activity = "Cardio";//mettre la l'activiter a differencier quand on click
 
 
 
-//avecl'id on recup le coach
+//avec l'id on recup le coach
 $db_handle = mysqli_connect('localhost', 'root', '');
 $db_found = mysqli_select_db($db_handle, "push_n_pool");
 if($db_found){
