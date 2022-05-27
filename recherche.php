@@ -42,7 +42,7 @@ function rechercher($recherche)
 
     $i = 0;
     echo "
-    <FORM action='php/testC.php' method='get'>
+    <FORM action='Calendar/CalendarRdvCoach.php' method='get'>
     <SELECT name='name' size='5'>";
     foreach ($results as $res) {
         $i++;

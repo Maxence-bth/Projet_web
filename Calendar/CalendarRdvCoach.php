@@ -8,7 +8,7 @@
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css">
-  <link rel="stylesheet" text="text/css" href="testC.css">
+  <link rel="stylesheet" text="../text/css" href="CalendarRdv.css">
 
   <link href="../bibliotheque/fullcalendar-5.11.0/lib/main.css" rel="stylesheet" />
   <script src="../bibliotheque/fullcalendar-5.11.0/lib/main.js"></script>
@@ -29,7 +29,7 @@
         themeSystem: 'bootstrap5',
         eventBackgroundColor: 'gray',
         initialView: 'timeGridWeek', //vue weekly
-        events: 'dateJson.php?name=' + '<?php echo $_GET['name']; ?>',
+        events: 'dateJsonCoach.php?name=' + '<?php echo $_GET['name']; ?>',
         selectable: true,
         selectMirror: true,
         allDaySlot: false,
@@ -124,37 +124,37 @@
 
   <br>
   <div id="title">
-    <p> <img src="images/title.png" alt="erreur" width="400" height="100"></p>
+    <p> <img src="../images/title.png" alt="erreur" width="400" height="100"></p>
   </div>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-      <a class="navbar-brand" href="index.html">ACCUEIL</a>
+      <a class="navbar-brand" href="../index.html">ACCUEIL</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="parcourir.html">Parcourir</a>
+            <a class="nav-link active" aria-current="page" href="../parcourir.html">Parcourir</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="rdv.html">Rendez-vous</a>
+            <a class="nav-link active" aria-current="page" href="../rdv.html">Rendez-vous</a>
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <a class="nav-link dropdown-toggle" href="../#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Mon compte
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="compte.html">Se connecter</a></li>
-              <li><a class="dropdown-item" href="inscription.html">S'inscrire</a></li>
+              <li><a class="dropdown-item" href="../compte.html">Se connecter</a></li>
+              <li><a class="dropdown-item" href="../inscription.html">S'inscrire</a></li>
               <li>
                 <hr class="dropdown-divider">
               </li>
-              <li><a class="dropdown-item" href="chatroom.php">Chatroom</a></li>
+              <li><a class="dropdown-item" href="../chatroom.php">Chatroom</a></li>
               <li>
                 <hr class="dropdown-divider">
               </li>
-              <li><a class="dropdown-item" href="compte.html">Administrateurs</a></li>
+              <li><a class="dropdown-item" href="../compte.html">Administrateurs</a></li>
             </ul>
           </li>
 
@@ -243,7 +243,7 @@
 
 
   <div id="footer">Copyright &copy; 2022 PUSH 'N POOL<br />
-    <a href="mailto:pushnpool@gmail.com">pushnpool@gmail.com </a><br />
+    <a href="../mailto:pushnpool@gmail.com">pushnpool@gmail.com </a><br />
     <a>01 22 67 89 00 </a><br />
     <a>10 rue Sextius Michel, Paris 75015 </a><br />
     <p><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2625.372616477147!2d2.2863485148902147!3d48.851104609174946!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e6701b486bb253%3A0x61e9cc6979f93fae!2s10%20Rue%20Sextius%20Michel%2C%2075015%20Paris!5e0!3m2!1sfr!2sfr!4v1653230919712!5m2!1sfr!2sfr" width="800" height="150" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></p>
