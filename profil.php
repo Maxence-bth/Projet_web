@@ -2,13 +2,11 @@
 <html>
 
 <head>
+  <title>Activités sportives</title>
   <meta charset="utf-8" />
-  <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css' rel='stylesheet'>
-  <link href='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css' rel='stylesheet'>
-
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css">
-  <link rel="stylesheet" text="text/css" href="testC.css">
+  <link rel="stylesheet" text="text/css" href="activites.css">
 
   <link href="../bibliotheque/fullcalendar-5.11.0/lib/main.css" rel="stylesheet" />
   <script src="../bibliotheque/fullcalendar-5.11.0/lib/main.js"></script>
@@ -26,10 +24,10 @@
           center: 'title',
           right: 'agendaDay',
         },
-        themeSystem: 'bootstrap5',
-        eventBackgroundColor: 'gray',
         initialView: 'timeGridWeek', //vue weekly
-        events: 'dateJson.php?name=' + '<?php echo $_GET['name']; ?>',
+
+        events: 'dateJson.php',
+
         selectable: true,
         selectMirror: true,
         allDaySlot: false,
@@ -145,7 +143,7 @@
               Mon compte
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="compte.html">Se connecter</a></li>
+              <li><a class="dropdown-item" href="Connexion.php">Se connecter</a></li>
               <li><a class="dropdown-item" href="inscription.html">S'inscrire</a></li>
               <li>
                 <hr class="dropdown-divider">
@@ -159,7 +157,7 @@
           </li>
 
         </ul>
-        <form class="d-flex" action="../recherche.php" method="get">
+        <form class="d-flex" action="recherche.php" method="get">
           <input class="form-control me-2" type="search" placeholder="Rechercher" aria-label="Search" name="rechercheStr">
           <button class="btn btn-outline-success" type="submit" value="Rechercher" name="submitBtn">Rechercher</button>
         </form>
@@ -167,12 +165,8 @@
     </div>
   </nav> <br>
 
-  <h1 align="center"> Calendrier de <?php echo $_GET['name'] ?></h1>
-  <div id="calendar" class="image-div"></div>
+  <div id="calendar"></div>
 
-  <br>
-  <br>
-  <br>
   <div class="accordion" id="accordionExample">
     <div class="accordion-item">
       <h2 class="accordion-header" id="headingTwo">
@@ -240,7 +234,6 @@
     </div>
   </div>
   <br>
-
 
   <div id="footer">Copyright &copy; 2022 PUSH 'N POOL<br />
     <a href="mailto:pushnpool@gmail.com">pushnpool@gmail.com </a><br />
