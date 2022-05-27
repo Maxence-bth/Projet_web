@@ -20,7 +20,7 @@ try {
 // On récupère toute les date du du 21 mai
 //$sqlQuery = 'SELECT * FROM date WHERE WEEK(dateCol) = 21 AND DAY(dateCol) = 25';
 //On recupere les date des rendez vous (appointments) de la personne concernée 
-$sqlQuery = 'select date.dateCol, coach.Activity, date.idDate, person.Name, appointments.idCoach, appointments.idClient FROM date
+/*$sqlQuery = 'select date.dateCol, coach.Activity, date.idDate, person.Name, appointments.idCoach, appointments.idClient FROM date
 INNER JOIN appointments
 	ON date.idDate = appointments.idDate
 INNER JOIN coach
@@ -30,7 +30,19 @@ INNER JOIN person
 $statement = $mysqlClient->prepare($sqlQuery);
 $statement->execute([
     'name' => $_GET['name'],
+]);*/
+$sqlQuery = 'select date.dateCol, coach.Activity, date.idDate, person.Name, appointments.idCoach, appointments.idClient FROM date
+INNER JOIN appointments
+	ON date.idDate = appointments.idDate
+INNER JOIN coach
+	ON coach.idCoach = appointments.idCoach AND coach.Activity = :activity
+INNER JOIN person
+	ON coach.idPerson = person.idPerson';
+$statement = $mysqlClient->prepare($sqlQuery);
+$statement->execute([
+    'activity' => $_GET['activity'],
 ]);
+
 $st = $statement->fetchAll();
 
 // On affiche chaque les person une à une

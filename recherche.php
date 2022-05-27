@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 function rechercher($recherche)
 {
     $recherche = htmlspecialchars($recherche); //pour sécuriser le formulaire contre les failles html
@@ -36,24 +38,27 @@ function rechercher($recherche)
         echo '<script language="Javascript">
                 alert ("Pas de résultats" )
               </script>';
-        header('Location: sallesport.html');
-        exit();
+    } else if (count($results) == 1) {
+        foreach ($results as $res) {
+            header('Location: Calendar/CalendarRdvCoach.php?activity=' . $res['Activity']);
+            exit();
+        }
+    } else {
+        $i = 0;
+        echo "
+        <FORM action='Calendar/CalendarRdvCoach.php' method='get'>
+        <SELECT name='activity' size='5'>";
+        foreach ($results as $res) {
+            $i++;
+            if ($i == 1) //on selectionne le premier element de la liste par défault
+                echo '<option value=' . $res['Activity'] . ' selected>' . $res['Name'] . ' ' . $res['Surname'] . ' -- Activity : ' . $res['Activity'] . '</option>';
+            else
+                echo '<option value=' . $res['Activity'] . '>' . $res['Name'] . ' ' . $res['Surname'] . ' -- Activity : ' . $res['Activity'] . '</option>';
+        }
+        echo "</SELECT>
+        <button type='submit' value='rech'>Rechercher</button>
+        </FORM>";
     }
-
-    $i = 0;
-    echo "
-    <FORM action='Calendar/CalendarRdvCoach.php' method='get'>
-    <SELECT name='name' size='5'>";
-    foreach ($results as $res) {
-        $i++;
-        if ($i == 1) //on selectionne le premier element de la liste par défault
-            echo '<option value=' . $res['Name'] . ' selected>' . $res['Name'] . ' ' . $res['Surname'] . ' -- Activity : ' . $res['Activity'] . '</option>';
-        else
-            echo '<option value=' . $res['Name'] . '>' . $res['Name'] . ' ' . $res['Surname'] . ' -- Activity : ' . $res['Activity'] . '</option>';
-    }
-    echo "</SELECT>
-    <button type='submit' value='rech'>Rechercher</button>
-    </FORM>";
 }
 ?>
 

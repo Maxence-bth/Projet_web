@@ -29,7 +29,7 @@
         themeSystem: 'bootstrap5',
         eventBackgroundColor: 'gray',
         initialView: 'timeGridWeek', //vue weekly
-        events: 'dateJsonCoach.php?name=' + '<?php echo $_GET['name']; ?>',
+        events: 'dateJsonCoach.php?activity=' + '<?php echo $_GET['activity']; ?>',
         selectable: true,
         selectMirror: true,
         allDaySlot: false,
@@ -37,7 +37,7 @@
         aspectRatio: 2, //taille du calendrier dans la page
         //contentHeight: 400, //taille du calendrier dans la page
         expandRows: 10, //agrandit les cellules au max
-        hiddenDays: [0, 6], //cache le dimanche et le samedi
+        hiddenDays: [0], //cache le dimanche et le samedi
         dayMaxEvents: true, // allow "more" link when too many events
 
         eventOverlap: false, //pas d'event qui se chevauchent
@@ -47,24 +47,24 @@
         navLinks: true, // can click day/week names to navigate views
         selectConstraint: [ // specify an array instead
           {
-            daysOfWeek: [1, 2, 3, 4, 5], // Monday, Tuesday, Wednesday
+            daysOfWeek: [1, 2, 3, 4, 5, 6], // Monday, Tuesday, Wednesday
             startTime: '07:00', // 8am
             endTime: '12:00' // 6pm
           },
           {
-            daysOfWeek: [1, 2, 3, 4, 5], // Monday, Tuesday, Wednesday
+            daysOfWeek: [1, 2, 3, 4, 5, 6], // Monday, Tuesday, Wednesday
             startTime: '14:00', // 8am
             endTime: '20:00' // 6pm
           }
         ],
         businessHours: [ // specify an array instead
           {
-            daysOfWeek: [1, 2, 3, 4, 5], // Monday, Tuesday, Wednesday
+            daysOfWeek: [1, 2, 3, 4, 5, 6], // Monday, Tuesday, Wednesday
             startTime: '07:00', // 8am
             endTime: '12:00' // 6pm
           },
           {
-            daysOfWeek: [1, 2, 3, 4, 5], // Monday, Tuesday, Wednesday
+            daysOfWeek: [1, 2, 3, 4, 5, 6], // Monday, Tuesday, Wednesday
             startTime: '14:00', // 8am
             endTime: '20:00' // 6pm
           }
@@ -167,7 +167,7 @@
     </div>
   </nav> <br>
 
-  <h1 align="center"> Calendrier de <?php echo $_GET['name'] ?></h1>
+  <h1 align="center"> Calendrier de <?php echo $_GET['activity'] ?></h1>
   <div id="calendar" class="image-div"></div>
 
   <br>
