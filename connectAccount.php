@@ -9,23 +9,51 @@ $db_handle = mysqli_connect('localhost', 'root', '');
 $db_found = mysqli_select_db($db_handle, "push_n_pool");
 
 if($db_found){
-    $sql = "SELECT Email,password FROM push_n_pool.person WHERE Email = '".$mail."'AND password = '".$password."'";
+    $sql = "SELECT Email,password,idPerson FROM push_n_pool.person WHERE Email = '".$mail."'AND password = '".$password."'";
     $result = mysqli_query($db_handle, $sql);
     $data = mysqli_fetch_assoc($result);
+   
         
 }else{
     echo "Database not found";
 }
+//$sql = "SELECT * FROM push_n_pool.client where idPerson = 1"; 
 
 if($data != null)
 {
     $_SESSION['login'] = $mail;
+    //$_SESSION['coach'] = 
+    $idPerson = $data['idPerson'];
     echo "Vous etes connecter";
 }else{
     echo "Pas de compte avec ses identifiants";
+    $idPerson =0;
+}
+mysqli_close($db_handle);
+
+$db_handle = mysqli_connect('localhost', 'root', '');
+$db_found = mysqli_select_db($db_handle, "push_n_pool");
+
+if($db_found){
+    $sql = "SELECT * FROM push_n_pool.client where idPerson =".$idPerson ; 
+    $result = mysqli_query($db_handle, $sql);
+    $data = mysqli_fetch_assoc($result);
+   
+        
+}else{
+    echo "Database not found";
+}
+if($data != null)
+{
+    $_SESSION['coach'] = 0;
+    echo 'client';
+}else{
+    $_SESSION['coach'] = 1;
+    echo 'coach';
 }
 mysqli_close($db_handle);
 ?>
 <html>
+</br>
     <a href='index.html'>revenir a la page d'acceuil</a>
 </html>
