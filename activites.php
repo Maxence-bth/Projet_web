@@ -60,7 +60,7 @@ session_start();
      <div class="row row-cols-1 row-cols-md-3 g-4">
         <div class="col">
           <div class="card h-100">
-            <img src="images/cardio.jpg" class="card-img-top" alt="erreur" width="300" height="200">
+            <img src="images/cardiou.jpg" class="card-img-top" alt="erreur" width="300" height="200">
             <div class="card-body">
               <h5 class="card-title">CARDIO-TRAINING</h5>
               <p class="card-text">La salle de sport dispose de plusieurs appareils d'<strong>entrainement cardio</strong>. Les coachs vous proposent plusieurs types de séances. Ils s'adapteront à votre niveau.<br><br>
@@ -77,7 +77,7 @@ session_start();
         </div>
         <div class="col">
           <div class="card h-100">
-            <img src="images/biking.jpg" class="card-img-top" alt="erreur" width="300" height="200">
+            <img src="images/bikingo.jpg" class="card-img-top" alt="erreur" width="300" height="200">
             <div class="card-body">
               <h5 class="card-title">BIKING</h5>
               <p class="card-text">La salle possède aussi des vélos pour faire du <strong>Biking</strong> avec des coachs qui sauront vous faire transpirer. </p>
@@ -128,7 +128,7 @@ session_start();
           </div>
           <div class="col">
             <div class="card h-100">
-                <img src="images/fitness.jpg" class="card-img-top" alt="erreur" width="300" height="200">
+                <img src="images/fitnesso.jpg" class="card-img-top" alt="erreur" width="300" height="200">
               <div class="card-body">
                 <h5 class="card-title">FITNESS</h5>
                 <p class="card-text">Tu veux bouger au rythme de tes musiques préférées et avoir un <strong>corps de dieu</strong>, alors c'est avec nos coachs de fintess que tu vas atteindre ton objectif</p>
