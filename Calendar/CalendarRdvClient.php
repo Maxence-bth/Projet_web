@@ -86,7 +86,7 @@
           _title = (_title ? _title : "occupied"),
             //alert("Activité : " + _title);
             $.ajax({
-              data: 'title=' + _title + '&start=' + start + '&end=' + end,
+              data: 'title=' + _title + '&start=' + start + '&end=' + end + '&idClient=' + $_SESSION['idClient'],
               type: "POST",
               url: 'addEvent.php',
               success: function(data) {

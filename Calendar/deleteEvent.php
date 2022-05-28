@@ -4,7 +4,7 @@ session_start();
 $title = $_POST['title'];
 $start = $_POST['start'];
 $end = $_POST['end'];
-$idClient = $_SESSION['idClient'];
+$idClient = $_POST['idClient'];
 $idCoach = 0;
 //$start = date("Y-m-d H:i:s", strtotime("$start"));
 

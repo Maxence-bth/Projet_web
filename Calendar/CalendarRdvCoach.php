@@ -1,3 +1,5 @@
+<?php session_start(); ?>
+
 <!DOCTYPE html>
 <html>
 
@@ -26,6 +28,7 @@
           center: 'title',
           right: 'agendaDay',
         },
+        editable: <?php echo $_SESSION['idPerson']; ?> == 0 ? true : false,
         themeSystem: 'bootstrap5',
         eventBackgroundColor: 'gray',
         initialView: 'timeGridWeek', //vue weekly
@@ -76,26 +79,62 @@
           return true;
         },*/
         select: function(arg) {
-          var _title = prompt("Event Title:");
-          calendar.addEvent({
-            title: (_title ? _title : "occupied"),
-            start: arg.start,
-            end: arg.end,
-            /*
-            ajax({
-                          url = 'http://localhost/ING3%20web/Projet/Projet_web/php/add_events.php',
-                          data = 'title=' + title + '&start=' + start + '&end=' + end,
-                          type = "POST",
-                          success = function() {
-                            calendar.fullCalendar('refetchEvents');
-                            alert("Added Successfully");
-                          }
-                        })*/
-          });
+          //var startDate = calendar.formatDate(arg.start, "yyyy-MM-dd HH:mm:ss");
+          //var endDate = calendar.formatDate(arg.end, "yyyy-MM-dd HH:mm:ss");
+          var start = moment(arg.start).format('YYYY-MM-DDTHH:mm:ss');
+          var end = moment(arg.end).format('YYYY-MM-DDTHH:mm:ss');
+
+          var _title = '<?php echo $_GET['activity']; ?>';
+          //alert("Activité : " + _title);
+          $.ajax({
+            data: 'title=' + _title + '&start=' + start + '&end=' + end,
+            type: "POST",
+            url: 'addEvent.php',
+            success: function(data) {
+              alert("DATA : " + data);
+              if (data == "OK") {
+                /*calendar.addEvent({
+                  title: _title,
+                  start: arg.start,
+                  end: arg.end,
+                });*/
+                alert("Rendez-vous ajouter avec succès");
+              } else {
+                alert("Erreur lors de l'ajout de l'activité " + _title + ". Reessayez.\n Erreur: " + data);
+                //arg.event.remove();
+              }
+              calendar.refetchEvents();
+            },
+          })
+
           calendar.unselect();
         },
         eventClick: function(arg) {
-          if (confirm("Are you sure you want to delete this event?")) {
+          if (confirm("Are you sure you want to delete this event? : " + arg.event.idAppointments)) {
+            var start = moment(arg.event.start).format('YYYY-MM-DDTHH:mm:ss');
+            var end = moment(arg.event.end).format('YYYY-MM-DDTHH:mm:ss');
+
+            $.ajax({
+              data: 'title=' + arg.event.title + '&start=' + start + '&end=' + end + '&idAppointments=' + arg.event.idAppointments,
+              type: "POST",
+              url: 'deleteEventsId.php',
+              success: function(data) {
+                alert("DATA : " + data);
+                if (data == "OK") {
+                  /*calendar.addEvent({
+                    title: _title,
+                    start: arg.start,
+                    end: arg.end,
+                  });*/
+                  alert("Repos supprimer avec succès");
+                } else {
+                  alert("Erreur lors de la suppression de l'évènement " + arg.event.title + ". Reessayez.\n Erreur: " + data);
+                  //arg.event.remove();
+                }
+                calendar.refetchEvents();
+              },
+            })
+
             arg.event.remove();
           }
         },
@@ -168,6 +207,7 @@
   </nav> <br>
 
   <h1 align="center"> Calendrier de <?php echo $_GET['activity'] ?></h1>
+  <h2 align="center"> Selectionnez les jours de repos </h2>
   <div id="calendar" class="image-div"></div>
 
   <br>

@@ -24,6 +24,7 @@ if ($data != null) {
     $_SESSION['login'] = $mail;
     $_SESSION['Nom'] = $data['Name'];
     $_SESSION['Prenom'] = $data['Surname'];
+    $_SESSION['idPerson'] = $data['idPerson'];
     //$_SESSION['coach'] = 
     $idPerson = $data['idPerson'];
     echo "Vous etes connecter";

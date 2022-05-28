@@ -31,7 +31,7 @@ $statement = $mysqlClient->prepare($sqlQuery);
 $statement->execute([
     'name' => $_GET['name'],
 ]);*/
-$sqlQuery = 'select date.dateCol, coach.Activity, date.idDate, person.Name, appointments.idCoach, appointments.idClient FROM date
+$sqlQuery = 'select date.dateCol, coach.Activity, date.idDate, person.Name, appointments.idAppointments, appointments.idCoach, appointments.idClient FROM date
 INNER JOIN appointments
 	ON date.idDate = appointments.idDate
 INNER JOIN coach
@@ -47,9 +47,17 @@ $st = $statement->fetchAll();
 
 // On affiche chaque les person une à une
 foreach ($st as $row) {
+    if ($row["idClient"] == 0) {
+        $title = 'Unavailable';
+    } else {
+        $title = $row["Activity"];
+    }
     $data[] = array(
+        'title'   => $title,
         'id'   => $row["idDate"],
-        'title'   => $row["Activity"],
+        'idClient'   => $row["idClient"],
+        'idCoach'   => $row["idCoach"],
+        'idAppointments'   => $row["idAppointments"],
         'start'   => $row["dateCol"],
         'end'   => endSlot($row["dateCol"])
     );
