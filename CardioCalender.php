@@ -73,7 +73,7 @@ mysqli_close($db_handle);
 
 if($row_cnt == 0)
 {
-    header('Location: index.html');
+    header('Location: index.php');
     exit;
 }
 
