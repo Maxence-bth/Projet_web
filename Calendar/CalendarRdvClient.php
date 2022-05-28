@@ -1,3 +1,5 @@
+<?php session_start(); ?>
+
 <!DOCTYPE html>
 <html>
 
@@ -12,7 +14,7 @@
   <script src="../bibliotheque/fullcalendar-5.11.0/lib/main.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-
+  <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.7.0/moment.min.js" type="text/javascript"></script>
 
   <script>
     document.addEventListener("DOMContentLoaded", function() {
@@ -27,7 +29,7 @@
         themeSystem: 'bootstrap5',
         eventBackgroundColor: 'gray',
         initialView: 'timeGridWeek', //vue weekly
-        events: 'dateJsonClient.php?name=' + '<?php echo $_GET['name']; ?>',
+        events: 'dateJsonClient.php?email=' + '<?php echo $_SESSION['login']; ?>',
         selectable: true,
         selectMirror: true,
         allDaySlot: false,
@@ -75,22 +77,34 @@
         },*/
 
         select: function(arg) {
-          var _title = prompt("Event Title:");
-          calendar.addEvent({
-            title: (_title ? _title : "occupied"),
-            start: arg.start,
-            end: arg.end,
-          });
+          //var startDate = calendar.formatDate(arg.start, "yyyy-MM-dd HH:mm:ss");
+          //var endDate = calendar.formatDate(arg.end, "yyyy-MM-dd HH:mm:ss");
+          var start = moment(arg.start).format('YYYY-MM-DDTHH:mm:ss');
+          var end = moment(arg.end).format('YYYY-MM-DDTHH:mm:ss');
 
-          $.ajax({
-            url: 'http://localhost/ING3%20web/Projet/Projet_web/Calendar/addEvent.php',
-            data: 'title=' + arg.title + '&start=' + arg.start + '&end=' + arg.end,
-            type: "POST",
-            success: function() {
-              calendar.refetchEvents();
-              alert("Added Successfully");
-            }
-          })
+          var _title = prompt("Event Title le(" + start + "):");
+          _title = (_title ? _title : "occupied"),
+            //alert("Activité : " + _title);
+            $.ajax({
+              data: 'title=' + _title + '&start=' + start + '&end=' + end,
+              type: "POST",
+              url: 'addEvent.php',
+              success: function(data) {
+                alert("DATA : " + data);
+                if (data == "OK") {
+                  /*calendar.addEvent({
+                    title: _title,
+                    start: arg.start,
+                    end: arg.end,
+                  });*/
+                  alert("Added Successfully");
+                } else {
+                  alert("Erreur lors de l'ajout de l'acitivité " + _title + ". Reessayez.\n Erreur: " + data);
+                  //arg.event.remove();
+                }
+                calendar.refetchEvents();
+              },
+            })
 
           calendar.unselect();
         },
@@ -128,7 +142,7 @@
   </div>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-      <a class="navbar-brand" href="../index.html">ACCUEIL</a>
+      <a class="navbar-brand" href="../index.php">ACCUEIL</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -138,7 +152,7 @@
             <a class="nav-link active" aria-current="page" href="../parcourir.html">Parcourir</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="../rdv.html">Rendez-vous</a>
+            <a class="nav-link active" aria-current="page" href="../rdv.php">Rendez-vous</a>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="../#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -167,7 +181,7 @@
     </div>
   </nav> <br>
 
-  <h1 align="center"> Calendrier de <?php echo $_GET['name'] ?></h1>
+  <h1 align="center"> Calendrier de <?php echo $_SESSION['Name'] . " " . $_SESSION['Surname'] ?></h1>
   <div id="calendar" class="image-div"></div>
 
   <br>

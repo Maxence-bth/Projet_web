@@ -1,53 +1,50 @@
 <?php
 session_start();
 
-$mail = isset($_POST["mail"])? $_POST["mail"] : "";
-$password = isset($_POST["password"])? $_POST["password"] : "";
+$mail = isset($_POST["mail"]) ? $_POST["mail"] : "";
+$password = isset($_POST["password"]) ? $_POST["password"] : "";
 
 
-$db_handle = mysqli_connect('localhost', 'root', '');
+$db_handle = mysqli_connect('localhost', 'root', 'romain2504');
 $db_found = mysqli_select_db($db_handle, "push_n_pool");
 
-if($db_found){
-    $sql = "SELECT Email,password,idPerson FROM push_n_pool.person WHERE Email = '".$mail."'AND password = '".$password."'";
+if ($db_found) {
+    $sql = "SELECT Email,password,idPerson, Name, Surname  FROM push_n_pool.person WHERE Email = '" . $mail . "'AND password = '" . $password . "'";
     $result = mysqli_query($db_handle, $sql);
     $data = mysqli_fetch_assoc($result);
-   
-        
-}else{
+} else {
     echo "Database not found";
 }
 //$sql = "SELECT * FROM push_n_pool.client where idPerson = 1"; 
 
-if($data != null)
-{
+if ($data != null) {
     $_SESSION['login'] = $mail;
+    $_SESSION['Name'] = $data['Name'];
+    $_SESSION['Surname'] = $data['Surname'];
     //$_SESSION['coach'] = 
     $idPerson = $data['idPerson'];
     echo "Vous etes connecter";
-}else{
+} else {
     echo "Pas de compte avec ses identifiants";
-    $idPerson =0;
+    $idPerson = 0;
 }
 mysqli_close($db_handle);
 
-$db_handle = mysqli_connect('localhost', 'root', '');
+$db_handle = mysqli_connect('localhost', 'root', 'romain2504');
 $db_found = mysqli_select_db($db_handle, "push_n_pool");
 
-if($db_found){
-    $sql = "SELECT * FROM push_n_pool.client where idPerson =".$idPerson ; 
+if ($db_found) {
+    $sql = "SELECT * FROM push_n_pool.client where idPerson =" . $idPerson;
     $result = mysqli_query($db_handle, $sql);
     $data = mysqli_fetch_assoc($result);
-   
-        
-}else{
+} else {
     echo "Database not found";
 }
-if($data != null)
-{
+if ($data != null) {
     $_SESSION['coach'] = 0;
+    $_SESSION['idClient'] = $data['idClient'];
     echo 'client';
-}else{
+} else {
     $_SESSION['coach'] = 1;
     echo 'coach';
 }
@@ -55,5 +52,6 @@ mysqli_close($db_handle);
 ?>
 <html>
 </br>
-    <a href='index.html'>revenir a la page d'acceuil</a>
+<a href='index.php'>revenir a la page d'acceuil</a>
+
 </html>

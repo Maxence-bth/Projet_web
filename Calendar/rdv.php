@@ -168,7 +168,7 @@
         </div>
     </nav> <br>
 
-    <h1 align="center"> Calendrier de <?php echo $_GET['name'] ?></h1>
+    <h1 align="center"> Calendrier de <?php echo $_SESSION['Name'] . " " . $_SESSION['Surname'] ?></h1>
     <div id="calendar" class="image-div"></div>
 
     <br>

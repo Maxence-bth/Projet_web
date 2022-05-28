@@ -28,10 +28,10 @@ INNER JOIN coach
 INNER JOIN client
 	ON appointments.idClient = client.idClient
 INNER JOIN person
-	ON client.idPerson = person.idPerson AND person.Name=:name';
+	ON client.idPerson = person.idPerson AND person.Email=:email';
 $statement = $mysqlClient->prepare($sqlQuery);
 $statement->execute([
-    'name' => $_GET['name'],
+    'email' => $_GET['email'],
 ]);
 $st = $statement->fetchAll();
 
