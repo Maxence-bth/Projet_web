@@ -19,8 +19,8 @@ if ($db_found) {
 
 if ($data != null) {
     $_SESSION['login'] = $mail;
-    $_SESSION['Name'] = $data['Name'];
-    $_SESSION['Surname'] = $data['Surname'];
+    $_SESSION['Nom'] = $data['Name'];
+    $_SESSION['Prenom'] = $data['Surname'];
     //$_SESSION['coach'] = 
     $idPerson = $data['idPerson'];
     echo "Vous etes connecter";
@@ -45,6 +45,7 @@ if ($data != null) {
     $_SESSION['idClient'] = $data['idClient'];
    // echo 'client';
 } else {
+    $_SESSION['idClient'] = 0;
     $_SESSION['coach'] = 1;
     //echo 'coach';
 }
