@@ -6,31 +6,7 @@ $start = $_POST['start'];
 $end = $_POST['end'];
 $idClient = $_SESSION['idClient'];
 $idCoach = 0;
-$idDate = 8;
 
-
-function dateDiff($date1, $date2)
-{
-    $diff = abs(strtotime($date1) - strtotime($date2)); // abs pour avoir la valeur absolute, ainsi éviter d'avoir une différence négative
-    $retour = array();
-
-    $tmp = $diff;
-    $retour['second'] = $tmp % 60;
-
-    $tmp = floor(($tmp - $retour['second']) / 60);
-    $retour['minute'] = $tmp % 60;
-
-    $tmp = floor(($tmp - $retour['minute']) / 60);
-    $retour['hour'] = $tmp % 24;
-
-    $tmp = floor(($tmp - $retour['hour'])  / 24);
-    $retour['day'] = $tmp;
-
-    return $retour;
-}
-$diff = dateDiff($start, $end);
-
-//echo "----" . $title . "<br>" . $start . "<br>" . $end;
 
 // connexion à la base de données
 try {
@@ -60,7 +36,6 @@ if ($res != null) {
 }
 
 
-
 //Recupere l'id de la date
 $sql = "SELECT * FROM date where dateCol=:dateS";
 $q = $bdd->prepare($sql);
@@ -78,8 +53,22 @@ if ($res != null) {
     exit("NO DATE FOUND");
 }
 
-//Sauvegarde le creneaux dans la BDD
-$sql = "INSERT INTO appointments (idClient, idCoach, idDate) VALUES (:idClient, :idCoach, :idDate)";
+
+
+//Trouve le creneaux dans la BDD
+$sql = "SELECT * FROM push_n_pool.appointments 
+INNER JOIN coach ON appointments.idCoach = coach.idCoach AND coach.Activity = 'Biking' AND appointments.idClient = '2' AND appointments.idDate = 44;";
+$q = $bdd->prepare($sql);
+//$q->execute(array(':idClient' => $idClient, ':idCoach' => $idCoach, ':idDate' => $idDate));
+$q->execute([
+    'idClient' => $idClient,
+    'idCoach' => $idCoach,
+    'idDate' => $idDate
+]);
+
+//Supprime le creneaux dans la BDD
+$sql = "SELECT * FROM push_n_pool.appointments 
+INNER JOIN coach ON appointments.idCoach = coach.idCoach AND coach.Activity = 'Biking' AND appointments.idClient = '2' AND appointments.idDate = 44;";
 $q = $bdd->prepare($sql);
 //$q->execute(array(':idClient' => $idClient, ':idCoach' => $idCoach, ':idDate' => $idDate));
 $q->execute([
