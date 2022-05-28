@@ -1,11 +1,14 @@
 <?php
 session_start();
 
+$MDP = 'romain2504';
+//$MDP = '';
+
 $mail = isset($_POST["mail"]) ? $_POST["mail"] : "";
 $password = isset($_POST["password"]) ? $_POST["password"] : "";
 
 
-$db_handle = mysqli_connect('localhost', 'root', '');
+$db_handle = mysqli_connect('localhost', 'root', $MDP);
 $db_found = mysqli_select_db($db_handle, "push_n_pool");
 
 if ($db_found) {
@@ -30,7 +33,7 @@ if ($data != null) {
 }
 mysqli_close($db_handle);
 
-$db_handle = mysqli_connect('localhost', 'root', '');
+$db_handle = mysqli_connect('localhost', 'root', $MDP);
 $db_found = mysqli_select_db($db_handle, "push_n_pool");
 
 if ($db_found) {
@@ -43,7 +46,7 @@ if ($db_found) {
 if ($data != null) {
     $_SESSION['coach'] = 0;
     $_SESSION['idClient'] = $data['idClient'];
-   // echo 'client';
+    // echo 'client';
 } else {
     $_SESSION['idClient'] = 0;
     $_SESSION['coach'] = 1;
