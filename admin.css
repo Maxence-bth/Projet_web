@@ -33,8 +33,13 @@ form{
 
 h1{
     text-align: center;
+
 }
 
-form form{
+#calendar{
+    background-color: red;
+    width: 300px;
+    margin-top: 700px;
+    margin-left: 500px;
     text-align: center;
 }
