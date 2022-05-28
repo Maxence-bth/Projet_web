@@ -6,7 +6,7 @@ $start = $_POST['start'];
 $end = $_POST['end'];
 $idClient = $_SESSION['idClient'];
 $idCoach = 0;
-
+//$start = date("Y-m-d H:i:s", strtotime("$start"));
 
 // connexion à la base de données
 try {
@@ -19,7 +19,6 @@ try {
 //recupere l'id du coach correspondant à l'activité
 $sql = "SELECT * FROM coach where Activity=:activity";
 $q = $bdd->prepare($sql);
-//$q->execute(array(':idClient' => $idClient, ':idCoach' => $idCoach, ':idDate' => $idDate));
 $q->execute([
     'activity' => $title,
 ]);
@@ -33,13 +32,13 @@ if ($res != null) {
     //echo json_encode(array('success' => false));
     //throw new Exception();
     exit("NO ACTIVITY FOUND");
+    //exit($title);
 }
 
 
 //Recupere l'id de la date
 $sql = "SELECT * FROM date where dateCol=:dateS";
 $q = $bdd->prepare($sql);
-//$q->execute(array(':idClient' => $idClient, ':idCoach' => $idCoach, ':idDate' => $idDate));
 $q->execute([
     'dateS' => $start,
 ]);
@@ -51,30 +50,39 @@ if ($res != null) {
     }
 } else {
     exit("NO DATE FOUND");
+    //exit($start);
 }
 
 
-
 //Trouve le creneaux dans la BDD
-$sql = "SELECT * FROM push_n_pool.appointments 
-INNER JOIN coach ON appointments.idCoach = coach.idCoach AND coach.Activity = 'Biking' AND appointments.idClient = '2' AND appointments.idDate = 44;";
+$sql = "SELECT (idAppointments) FROM push_n_pool.appointments
+INNER JOIN coach ON appointments.idCoach = coach.idCoach
+                AND coach.Activity = :activity 
+                AND appointments.idClient = :idClient 
+                AND appointments.idDate = :idDate";
 $q = $bdd->prepare($sql);
-//$q->execute(array(':idClient' => $idClient, ':idCoach' => $idCoach, ':idDate' => $idDate));
 $q->execute([
+    'activity' => $title,
     'idClient' => $idClient,
-    'idCoach' => $idCoach,
     'idDate' => $idDate
 ]);
+$res = $q->fetchAll();
+if ($res != null) {
+    foreach ($res as $r) {
+        $idAppointments = $r['idAppointments'];
+    }
+} else {
+    exit("NO APPOINTMENTS FOUND");
+}
+
 
 //Supprime le creneaux dans la BDD
-$sql = "SELECT * FROM push_n_pool.appointments 
-INNER JOIN coach ON appointments.idCoach = coach.idCoach AND coach.Activity = 'Biking' AND appointments.idClient = '2' AND appointments.idDate = 44;";
+$sql = "DELETE FROM push_n_pool.appointments
+WHERE appointments.idAppointments = :idAppointments ";
 $q = $bdd->prepare($sql);
-//$q->execute(array(':idClient' => $idClient, ':idCoach' => $idCoach, ':idDate' => $idDate));
 $q->execute([
-    'idClient' => $idClient,
-    'idCoach' => $idCoach,
-    'idDate' => $idDate
+    'idAppointments' => $idAppointments,
 ]);
+
 
 exit("OK");
