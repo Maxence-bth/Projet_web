@@ -1,5 +1,7 @@
+<?php
+session_start();
 
-<!-- METTRE PHP -->
+?>
 
 <!DOCTYPE html>
 
@@ -45,4 +47,17 @@
             </form>
             </forme>
         </div>
+        <br>
+        <form action="Calendar/CalendarRdvCoach.php" method="get">
+            <form class="row g-3">
+                <div class="col-sm-5">
+                    <input type="text" class="form-control" name="activity" placeholder="Entrer l'activité pour voir son emploie du temps">
+                </div><br><br>
+                <div class="col-12">
+                    <button type="submit" class="btn btn-outline-danger">Valider</button>
+                    <a href="index.php"><button type="button" class="btn btn-outline-danger">Retour accueil</button></a>
+                </div>
+            </form>
+
+        </form>
     </body>

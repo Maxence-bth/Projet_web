@@ -47,8 +47,7 @@
 <?php
 
 
-$activity = "Cardio";//mettre la l'activiter a differencier quand on click
-
+$activity = isset($_POST["activity"])? $_POST["activity"] : "";//mettre la l'activiter a differencier quand on click
 
 
 
@@ -58,7 +57,7 @@ $db_found = mysqli_select_db($db_handle, "push_n_pool");
 if($db_found){
     $sql = "SELECT idCoach,idPerson FROM push_n_pool.coach where Activity = '".$activity."'";
     $result = mysqli_query($db_handle, $sql);
-
+    $row_cnt = $result->num_rows;
     while($data = mysqli_fetch_assoc($result)){
        $idCoach = $data['idCoach'];
        $idperson= $data['idPerson'];
@@ -69,6 +68,14 @@ if($db_found){
 //echo "</br>id coach = ". $idCoach;
 
 mysqli_close($db_handle);
+
+//echo $data;
+
+if($row_cnt == 0)
+{
+    header('Location: index.php');
+    exit;
+}
 
 
 //avec le coach on recup les date dans la tavle crenaux
@@ -111,15 +118,20 @@ if($db_found){
 
 //recup de la BDD les dates en fonction de la semaine
     $semaine = isset($_POST["date1"])? $_POST["date1"] : "";/////////////////////////////ISSET ICI
+    $verif = $semaine;
     $semaine = date("W",strtotime($semaine));
-
+    
     $db_handle = mysqli_connect('localhost', 'root', '');
     $db_found = mysqli_select_db($db_handle, "push_n_pool");
     $DATE= array();
     
     if($db_found){
-    //$sql = "SELECT dateCol FROM push_n_pool.date where WEEK(dateCol) = ". $semaine;
-    $sql = "SELECT dateCol FROM push_n_pool.date where WEEK(dateCol) = WEEK((SELECT MIN(dateCol) FROM push_n_pool.date ))";
+        if($verif != null){
+    $sql = "SELECT dateCol FROM push_n_pool.date where WEEK(dateCol) = ". $semaine; 
+    }
+    else{
+    $sql = "SELECT dateCol FROM push_n_pool.date where WEEK(dateCol) = WEEK((SELECT MIN(dateCol) FROM push_n_pool.date ))"; 
+    }
     $result = mysqli_query($db_handle, $sql);
 
     while($data = mysqli_fetch_assoc($result)){
