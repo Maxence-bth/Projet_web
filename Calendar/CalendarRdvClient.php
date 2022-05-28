@@ -82,7 +82,7 @@
           var start = moment(arg.start).format('YYYY-MM-DDTHH:mm:ss');
           var end = moment(arg.end).format('YYYY-MM-DDTHH:mm:ss');
 
-          var _title = prompt("Event Title le(" + start + "):");
+          var _title = prompt("Nom de l'activité pour le " + start + " :");
           _title = (_title ? _title : "occupied"),
             //alert("Activité : " + _title);
             $.ajax({
@@ -97,7 +97,7 @@
                     start: arg.start,
                     end: arg.end,
                   });*/
-                  alert("Added Successfully");
+                  alert("Rendez-vous ajouter avec succès");
                 } else {
                   alert("Erreur lors de l'ajout de l'acitivité " + _title + ". Reessayez.\n Erreur: " + data);
                   //arg.event.remove();
@@ -110,6 +110,30 @@
         },
         eventClick: function(arg) {
           if (confirm("Are you sure you want to delete this event?")) {
+            var start = moment(arg.start).format('YYYY-MM-DDTHH:mm:ss');
+            var end = moment(arg.end).format('YYYY-MM-DDTHH:mm:ss');
+
+            $.ajax({
+              data: 'title=' + _title + '&start=' + start + '&end=' + end,
+              type: "POST",
+              url: 'addEvent.php',
+              success: function(data) {
+                alert("DATA : " + data);
+                if (data == "OK") {
+                  /*calendar.addEvent({
+                    title: _title,
+                    start: arg.start,
+                    end: arg.end,
+                  });*/
+                  alert("Rendez-vous ajouter avec succès");
+                } else {
+                  alert("Erreur lors de l'ajout de l'activité " + _title + ". Reessayez.\n Erreur: " + data);
+                  //arg.event.remove();
+                }
+                calendar.refetchEvents();
+              },
+            })
+
             arg.event.remove();
           }
         },

@@ -45,6 +45,7 @@ if ($data != null) {
     $_SESSION['idClient'] = $data['idClient'];
     echo 'client';
 } else {
+    $_SESSION['idClient'] = 0;
     $_SESSION['coach'] = 1;
     echo 'coach';
 }

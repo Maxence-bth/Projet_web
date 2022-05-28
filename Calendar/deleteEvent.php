@@ -61,36 +61,31 @@ if ($res != null) {
 
 
 
+//Recupere l'id de la date
+$sql = "SELECT * FROM date where dateCol=:dateS";
+$q = $bdd->prepare($sql);
+//$q->execute(array(':idClient' => $idClient, ':idCoach' => $idCoach, ':idDate' => $idDate));
+$q->execute([
+    'dateS' => $start,
+]);
+$res = $q->fetchAll();
 
-for ($i = 0; $i < $diff['hour']; $i++) {
-    //Recupere l'id de la date
-    $sql = "SELECT * FROM date where dateCol=:dateS";
-    $q = $bdd->prepare($sql);
-    //$q->execute(array(':idClient' => $idClient, ':idCoach' => $idCoach, ':idDate' => $idDate));
-    $q->execute([
-        'dateS' => $start,
-    ]);
-    $res = $q->fetchAll();
-
-    if ($res != null) {
-        foreach ($res as $r) {
-            $idDate = $r['idDate'];
-        }
-    } else {
-        exit("NO DATE FOUND");
+if ($res != null) {
+    foreach ($res as $r) {
+        $idDate = $r['idDate'];
     }
-
-    //Sauvegarde le creneaux dans la BDD
-    $sql = "INSERT INTO appointments (idClient, idCoach, idDate) VALUES (:idClient, :idCoach, :idDate)";
-    $q = $bdd->prepare($sql);
-    //$q->execute(array(':idClient' => $idClient, ':idCoach' => $idCoach, ':idDate' => $idDate));
-    $q->execute([
-        'idClient' => $idClient,
-        'idCoach' => $idCoach,
-        'idDate' => $idDate
-    ]);
-
-    $start = date("Y-m-d H:i:s", strtotime("$start +1 hours"));
+} else {
+    exit("NO DATE FOUND");
 }
+
+//Sauvegarde le creneaux dans la BDD
+$sql = "INSERT INTO appointments (idClient, idCoach, idDate) VALUES (:idClient, :idCoach, :idDate)";
+$q = $bdd->prepare($sql);
+//$q->execute(array(':idClient' => $idClient, ':idCoach' => $idCoach, ':idDate' => $idDate));
+$q->execute([
+    'idClient' => $idClient,
+    'idCoach' => $idCoach,
+    'idDate' => $idDate
+]);
 
 exit("OK");
