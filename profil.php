@@ -152,7 +152,7 @@
               <li>
                 <hr class="dropdown-divider">
               </li>
-              <li><a class="dropdown-item" href="compte.html">Administrateurs</a></li>
+              <li><a class="dropdown-item" href="admin.php">Administrateurs</a></li>
             </ul>
           </li>
 

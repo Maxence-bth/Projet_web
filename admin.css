@@ -1,0 +1,40 @@
+body{
+    background-image: url("images/piscine.png");
+}
+
+#nav{
+  width: auto;
+  height: auto;
+  text-align: center;
+}
+
+#title{
+  text-align: center;
+}
+
+#right{
+    height: 250px;
+    width: 45%;
+    float: right;
+    background-color: #40463E;
+}
+
+#left{
+    height: 250px;
+    width: 45%;
+    float: left;
+    background-color: #40463E;
+    padding-right: 10%;
+}
+
+form{
+    text-align: center;
+}
+
+h1{
+    text-align: center;
+}
+
+form form{
+    text-align: center;
+}
