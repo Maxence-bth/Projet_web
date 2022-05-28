@@ -86,5 +86,5 @@ session_start();
 </br>
 
 <body>
-    <a href="index.html">revenir a la page d'accueil</a>
+    <a href="index.php">revenir a la page d'accueil</a>
 </body>

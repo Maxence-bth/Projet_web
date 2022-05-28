@@ -33,7 +33,7 @@ if($_SESSION!=null)
         </div><br><br>
         <div class="col-12">
             <button type="submit" class="btn btn-outline-danger">Valider</button>
-            <a href="index.html"><button type="button" class="btn btn-outline-danger">Retour accueil</button></a>
+            <a href="index.php"><button type="button" class="btn btn-outline-danger">Retour accueil</button></a>
           </div>
         </form>
      

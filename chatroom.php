@@ -25,7 +25,7 @@ function loginForm()
 {
     echo
     '<div id="loginform">
- <a href="index.html"> Retour acceuil</a> 
+ <a href="index.php"> Retour acceuil</a> 
  <p></p>
  <p>Veuillez saisir votre nom pour continuer : </p>
  <form action="chatroom.php" method="post">
