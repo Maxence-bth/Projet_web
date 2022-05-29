@@ -63,7 +63,7 @@
     <form action="RDVthankyou.php" method="post">
         <table>
             <?php
-            $MDP = '';
+            $MDP = 'romain2504';
 
             $activity = isset($_POST["activity"]) ? $_POST["activity"] : ""; //mettre la l'activiter a differencier quand on click
 
@@ -236,13 +236,13 @@
         </table>
         <input type='submit' value="Valider le RDV">
         </br>
-        <?php echo $nom;?>
+        <?php echo $nom; ?>
         </br>
-        <?php echo $mail;?>
+        <?php echo $mail; ?>
         </br>
-        <?php echo $prenom;?>
+        <?php echo $prenom; ?>
         </br>
         <?php echo $activity ?>
     </form>
-    <form action='recupCV.php' method='get'><button type='submit' class='btn btn-outline-dark' name='activity' value='<?php echo $activity?>'>Voir le CV</button></form>
+    <form action='recupCV.php' method='get'><button type='submit' class='btn btn-outline-dark' name='activity' value='<?php echo $activity ?>'>Voir le CV</button></form>
 </body>
