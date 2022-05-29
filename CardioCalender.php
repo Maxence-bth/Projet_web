@@ -63,7 +63,7 @@
     <form action="RDVthankyou.php" method="post">
         <table>
             <?php
-            $MDP = 'romain2504';
+            $MDP = 'maxou2001';
 
             $activity = isset($_POST["activity"]) ? $_POST["activity"] : ""; //mettre la l'activiter a differencier quand on click
 
