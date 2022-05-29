@@ -1,0 +1,21 @@
+body{
+    background-image: url("images/piscine.png");
+}
+
+#title{
+    text-align: center;
+}
+
+#choix{
+    text-align: center;
+    background-color: #40463E;
+    width: 400px;
+    height: 200px;
+    margin-left: 37%;
+}
+
+p{
+    font: bold;
+    font-size: x-large;
+    color: white;
+}
