@@ -21,14 +21,22 @@
   <script>
     document.addEventListener("DOMContentLoaded", function() {
       var calendarEl = document.getElementById("calendar");
-
+      var adminEdit = function() {
+        arg = <?php if (!empty($_SESSION['idPerson'])) {
+                echo $_SESSION['idPerson'];
+              } else {
+                echo -1;
+              } ?>;
+        alert("id user : " + arg + " -> " + arg == 0 ? true : false)
+        return arg == 0 ? true : false;
+      };
       var calendar = new FullCalendar.Calendar(calendarEl, {
         header: { //bouttons de navigation en haut
           left: 'prev,next',
           center: 'title',
           right: 'agendaDay',
         },
-        editable: <?php echo $_SESSION['idPerson']; ?> == 0 ? true : false,
+        editable: false, //peut pas modifier les events
         themeSystem: 'bootstrap5',
         eventBackgroundColor: 'gray',
         initialView: 'timeGridWeek', //vue weekly
@@ -44,7 +52,6 @@
         dayMaxEvents: true, // allow "more" link when too many events
 
         eventOverlap: false, //pas d'event qui se chevauchent
-        editable: false, //pas possible de changer les events
 
         initialDate: new Date(), //TODAY's DATE
         navLinks: true, // can click day/week names to navigate views
@@ -91,7 +98,7 @@
             type: "POST",
             url: 'addEvent.php',
             success: function(data) {
-              alert("DATA : " + data);
+              //alert("DATA : " + data);
               if (data == "OK") {
                 /*calendar.addEvent({
                   title: _title,
@@ -110,32 +117,35 @@
           calendar.unselect();
         },
         eventClick: function(arg) {
-          if (confirm("Are you sure you want to delete this event? : " + arg.event.idAppointments)) {
-            var start = moment(arg.event.start).format('YYYY-MM-DDTHH:mm:ss');
-            var end = moment(arg.event.end).format('YYYY-MM-DDTHH:mm:ss');
+          var eventObj = arg.event
+          if (adminEdit() || eventObj.extendedProps.idClient == <?php echo $_SESSION['idClient'] ?>) {
+            if (confirm("Are you sure you want to delete this event? : " + eventObj.extendedProps.idAppointments)) {
+              var start = moment(arg.event.start).format('YYYY-MM-DDTHH:mm:ss');
+              var end = moment(arg.event.end).format('YYYY-MM-DDTHH:mm:ss');
 
-            $.ajax({
-              data: 'title=' + arg.event.title + '&start=' + start + '&end=' + end + '&idAppointments=' + arg.event.idAppointments,
-              type: "POST",
-              url: 'deleteEventsId.php',
-              success: function(data) {
-                alert("DATA : " + data);
-                if (data == "OK") {
-                  /*calendar.addEvent({
-                    title: _title,
-                    start: arg.start,
-                    end: arg.end,
-                  });*/
-                  alert("Repos supprimer avec succès");
-                } else {
-                  alert("Erreur lors de la suppression de l'évènement " + arg.event.title + ". Reessayez.\n Erreur: " + data);
-                  //arg.event.remove();
-                }
-                calendar.refetchEvents();
-              },
-            })
+              $.ajax({
+                data: 'title=' + arg.event.title + '&start=' + start + '&end=' + end + '&idAppointments=' + eventObj.extendedProps.idAppointments,
+                type: "POST",
+                url: 'deleteEventsId.php',
+                success: function(data) {
+                  //alert("DATA : " + data);
+                  if (data == "OK") {
+                    /*calendar.addEvent({
+                      title: _title,
+                      start: arg.start,
+                      end: arg.end,
+                    });*/
+                    alert("Evènement supprimer avec succès");
+                  } else {
+                    alert("Erreur lors de la suppression de l'évènement " + arg.event.title + ". Reessayez.\n Erreur: " + data);
+                    //arg.event.remove();
+                  }
+                  calendar.refetchEvents();
+                },
+              })
 
-            arg.event.remove();
+              arg.event.remove();
+            }
           }
         },
       });
@@ -207,7 +217,11 @@
   </nav> <br>
 
   <h1 align="center"> Calendrier de <?php echo $_GET['activity'] ?></h1>
-  <h2 align="center"> Selectionnez les jours de repos </h2>
+  <h2 align="center"> <?php if ($_SESSION['idPerson'] == 1) {
+                        echo "Selectionnez les jours de repos";
+                      } else {
+                        echo "Ajouter / Supprimer des rendez-vous";
+                      } ?></h2>
   <div id="calendar" class="image-div"></div>
 
   <br>

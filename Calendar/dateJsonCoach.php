@@ -49,17 +49,22 @@ $st = $statement->fetchAll();
 foreach ($st as $row) {
     if ($row["idClient"] == 0) {
         $title = 'Unavailable';
+        $color = "#ef6969";
     } else {
-        $title = $row["Activity"];
+        $title = $row["Activity"] . " - Client." . $row["idClient"];
+        $color = "#6a7ed7";
     }
     $data[] = array(
         'title'   => $title,
         'id'   => $row["idDate"],
-        'idClient'   => $row["idClient"],
-        'idCoach'   => $row["idCoach"],
-        'idAppointments'   => $row["idAppointments"],
         'start'   => $row["dateCol"],
-        'end'   => endSlot($row["dateCol"])
+        'end'   => endSlot($row["dateCol"]),
+        'backgroundColor' => $color,
+        'extendedProps' => [
+            'idCoach'   => $row["idCoach"],
+            'idAppointments' => $row["idAppointments"],
+            'idClient'   => $row["idClient"],
+        ]
     );
 }
 
