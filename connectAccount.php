@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-$MDP = 'romain2504';
+$MDP = '';
 //$MDP = '';
 
 $mail = isset($_POST["mail"]) ? $_POST["mail"] : "";

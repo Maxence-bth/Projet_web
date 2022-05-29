@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -24,7 +28,7 @@
                 <a class="nav-link active" aria-current="page" href="parcourir.html">Parcourir</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="rdv.html">Rendez-vous</a>
+                <a class="nav-link active" aria-current="page" href="Calendar/CalendarRdvClient.php">Rendez-vous</a>
               </li>
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -59,7 +63,13 @@
             <div class="card-body">
               <h5 class="card-title">BASKETBALL</h5>
               <p class="card-text">Si tu veux devenir aussi fort que Mickeal Jordan et remporter tout tes matchs, alors viens t'inscrire dans l'équipe de basketball.</p>
-              <a href="activites.html"><button type="button" class="btn btn-outline-dark">Réserver</button></a>
+              <?php
+            if ($_SESSION != null) {
+              echo "<form action='RDVweek.php' method='get'><button type='submit' class='btn btn-outline-dark' name='activity' value='Basket'>Réserver</button></form>"; ///METTRE LE CALENDIRER LA
+            } else {
+              echo "<a href='Connexion.php'><button type='submit' class='btn btn-outline-dark' name='activity' value='Basket'>Réserver</button></a>";
+            }
+            ?>
             </div>
           </div>
         </div>
@@ -70,7 +80,13 @@
               <h5 class="card-title">FOOTBALL</h5>
               <p class="card-text">Retrouve ici le meilleur entraineur de football de la région et devient un joueur pro grâce à notre coach.</p>
               <br>
-              <a href="activites.html"><button type="button" class="btn btn-outline-dark">Réserver</button></a>
+              <?php
+            if ($_SESSION != null) {
+              echo "<form action='RDVweek.php' method='get'><button type='submit' class='btn btn-outline-dark' name='activity' value='Foot'>Réserver</button></form>"; ///METTRE LE CALENDIRER LA
+            } else {
+              echo "<a href='Connexion.php'><button type='submit' class='btn btn-outline-dark' name='activity' value='Foot'>Réserver</button></a>";
+            }
+            ?>
             </div>
           </div>
         </div>
@@ -80,7 +96,13 @@
             <div class="card-body">
               <h5 class="card-title">RUGBY</h5>
               <p class="card-text">Dans cette section, tu pourras t'entrainer avec un incroyable coach qui fera de toi une machine du rugby.</p>
-              <a href="activites.html"><button type="button" class="btn btn-outline-dark">Réserver</button></a>
+              <?php
+            if ($_SESSION != null) {
+              echo "<form action='RDVweek.php' method='get'><button type='submit' class='btn btn-outline-dark' name='activity' value='Rugby'>Réserver</button></form>"; ///METTRE LE CALENDIRER LA
+            } else {
+              echo "<a href='Connexion.php'><button type='submit' class='btn btn-outline-dark' name='activity' value='Rugby'>Réserver</button></a>";
+            }
+            ?>
             </div>
           </div>
         </div>
@@ -90,7 +112,13 @@
               <div class="card-body">
                 <h5 class="card-title">TENNIS</h5>
                 <p class="card-text">Certes Nadal >> Roger mais ca te dit pas devenir comme eux ? Alors rejoins notre cours de Tennis et vient t'entrainer avec notre super coach. </p>
-                <a href="activites.html"><button type="button" class="btn btn-outline-dark">Réserver</button></a>
+                <?php
+            if ($_SESSION != null) {
+              echo "<form action='RDVweek.php' method='get'><button type='submit' class='btn btn-outline-dark' name='activity' value='Tennis'>Réserver</button></form>"; ///METTRE LE CALENDIRER LA
+            } else {
+              echo "<a href='Connexion.php'><button type='submit' class='btn btn-outline-dark' name='activity' value='Tennis'>Réserver</button></a>";
+            }
+            ?>
               </div>
             </div>
           </div>
@@ -100,7 +128,13 @@
               <div class="card-body">
                 <h5 class="card-title">NATATION</h5>
                 <p class="card-text">C'est ici que tu vas devenir un nageur professionnel, tout ce qu'il te reste à faire c'est prendre rendez-vous avec nos coachs.</p>
-                <a href="activites.html"><button type="button" class="btn btn-outline-dark">Réserver</button></a>
+                <?php
+            if ($_SESSION != null) {
+              echo "<form action='RDVweek.php' method='get'><button type='submit' class='btn btn-outline-dark' name='activity' value='Natation'>Réserver</button></form>"; ///METTRE LE CALENDIRER LA
+            } else {
+              echo "<a href='Connexion.php'><button type='submit' class='btn btn-outline-dark' name='activity' value='Natation'>Réserver</button></a>";
+            }
+            ?>
               </div>
             </div>
           </div>
@@ -110,7 +144,13 @@
               <div class="card-body">
                 <h5 class="card-title">PLONGEON</h5>
                 <p class="card-text">Marre de faire des plats et rentrer à la maison avec des rougeurs ? C'est avec notre coach que tu apprendras à faire des super plongeons.</p>
-                <a href="activites.html"><button type="button" class="btn btn-outline-dark">Réserver</button></a>
+                <?php
+            if ($_SESSION != null) {
+              echo "<form action='RDVweek.php' method='get'><button type='submit' class='btn btn-outline-dark' name='activity' value='Plongeon'>Réserver</button></form>"; ///METTRE LE CALENDIRER LA
+            } else {
+              echo "<a href='Connexion.php'><button type='submit' class='btn btn-outline-dark' name='activity' value='Plongeon'>Réserver</button></a>";
+            }
+            ?>
               </div>
             </div>
           </div>

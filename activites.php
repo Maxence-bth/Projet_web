@@ -35,7 +35,7 @@ session_start();
           <li class="nav-item">
             <?php
             if ($_SESSION != null) {
-              echo "<a class='nav-link active' aria-current='page' href='rdv.php'>Rendez-vous</a>";
+              echo "<a class='nav-link active' aria-current='page' href='Calendar/CalendarRdvClient.php'>Rendez-vous</a>";
             } else {
               echo "<a class='nav-link active' aria-current='page' href='connexion.php'>Rendez-vous</a>";
             }
@@ -93,9 +93,7 @@ session_start();
           <h5 class="card-title">CARDIO-TRAINING</h5>
           <p class="card-text">La salle de sport dispose de plusieurs appareils d'<strong>entrainement cardio</strong>. Les coachs vous proposent plusieurs types de séances. Ils s'adapteront à votre niveau.<br><br>
             <?php
-            //<form action='RDVweek.php' method='get'><input type='submit' name='activity' value='Cardio' src='images/reserver.png' alt='erreur' width='150' height='40'/></form>
             if ($_SESSION != null) {
-              //<button type="button" class="btn btn-outline-secondary">Réserver</button>
               echo "<form action='RDVweek.php' method='get'><button type='submit' class='btn btn-outline-dark' name='activity' value='Cardio'>Réserver</button></form>"; ///METTRE LE CALENDIRER LA
             } else {
               echo "<a href='Connexion.php'><button type='submit' class='btn btn-outline-dark' name='activity' value='Cardio'>Réserver</button></a>";
