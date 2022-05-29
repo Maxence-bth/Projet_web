@@ -63,7 +63,7 @@
     <form action="RDVthankyou.php" method="post">
         <table>
             <?php
-        $MDP ='';
+            $MDP = '';
 
             $activity = isset($_POST["activity"]) ? $_POST["activity"] : ""; //mettre la l'activiter a differencier quand on click
 
@@ -158,8 +158,7 @@
                 echo "Database not found";
             }
             //echo $IDactivity;
-            if($DATE==null)
-            {
+            if ($DATE == null) {
                 header('Location: index.php');
                 exit;
             }
@@ -215,8 +214,34 @@
             }
             echo "</tr>";
 
+
+
+
+            $db_handle = mysqli_connect('localhost', 'root', $MDP);
+            $db_found = mysqli_select_db($db_handle, "push_n_pool");
+            if ($db_found) {
+                $sql = "SELECT * FROM push_n_pool.person where idPerson = " . $idperson;
+                $result = mysqli_query($db_handle, $sql);
+
+                while ($data = mysqli_fetch_assoc($result)) {
+                    $nom = $data['Name'];
+                    $prenom = $data['Surname'];
+                    $mail = $data['Email'];
+                }
+            } else {
+                echo "Database not found";
+            }
+            mysqli_close($db_handle);
             ?>
         </table>
         <input type='submit' value="Valider le RDV">
+        </br>
+        <?php echo $nom;?>
+        </br>
+        <?php echo $mail;?>
+        </br>
+        <?php echo $prenom;?>
+        </br>
+        <?php echo $activity ?>
     </form>
 </body>
