@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Formulaire : Achat billet d'avion</title>
+    <meta charset="utf-8" />
+  </head>
+  <body>
+ <h1>Formulaire : Achat billet d'avion</h1>
+    <form action="enregistreCV.php" method="post">
+      <table>
+        <tr>
+          <td>Numéro de telephone</td>
+          <td><input type="text" name="telephone">
+          </td>
+          <td>
+              Format :0612345678
+          </td>
+        </tr>
+        <tr>
+          <td>Nom :</td>
+          <td><input type="text" name="nom" /></td>
+        </tr>
+        <tr>
+            <td>Mail :</td>
+            <td><input type="text" name="mail" /></td>
+          </tr>
+        <tr>
+          <td>Age :</td>
+          <td><input type="number"name="age"min="18" max="67"></td>
+        </tr>
+        <tr>
+            <td style ="vertical-align: top;">Formation :</td>
+            <td><input type="text" name="Formation" style="width: 200px;height: 200px;" /></td>
+          </tr>
+          <tr>
+            <td style ="vertical-align: top;">Experience :</td>
+            <td><input type="text" name="Formation" style="width: 200px;height: 200px;" /></td>
+          </tr>
+        
+        
+        
+        
+        <tr>
+          <td colspan="2" align="left">
+            <input type="submit" value="Soumettre" name="Valider" />
+          </td>
+        </tr>
+      </table>
+    </form>
+    <div id="errordiv"></div>
+  </body>
+</html>
