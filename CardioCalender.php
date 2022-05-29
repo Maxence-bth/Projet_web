@@ -1,7 +1,38 @@
 <html>
 
 <head>
+<meta charset="utf-8" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
     <style type="text/css">
+
+        body{
+            background-image: url("images/piscine.png");
+        }
+
+        #title{
+        text-align: center;
+        }
+
+        #center{
+            margin-left: 40%;
+        }
+
+        #info{
+            color: white;
+            font-size: x-large;
+            text-align: center;
+        }
+
+        h1{
+            font: bold;
+        }
+
+        fieldset{
+            background-color: #40463E;
+        }
+
         caption
 
         /* Titre du tableau */
@@ -22,22 +53,23 @@
             {
             margin: auto;
             /* Centre le tableau */
-            border: 4px outset green;
+            border: 4px outset #40463E;
             /* Bordure du tableau avec effet 3D (outset) */
             border-collapse: collapse;
             /* Colle les bordures entre elles */
             width: 100%;
+            background-color: white;
         }
 
         th
 
         /* Les cellules d'en-tête */
             {
-            background-color: #006600;
+            background-color: #40463E;
             color: white;
             font-size: 1.1em;
             font-family: Arial, "Arial Black", Times, "Times New Roman", serif;
-            border: 1px solid red;
+            border: 1px solid grey;
         }
 
         td
@@ -55,11 +87,17 @@
         td.time {
             width: 5%;
         }
+
+
     </style>
 
 </head>
 
 <body>
+    <div id="title">
+        <p> <img src="images/title.png" alt="erreur" width="400" height="100"></p>
+    </div><br>
+
     <form action="RDVthankyou.php" method="post">
         <table>
             <?php
@@ -70,15 +108,16 @@
 
 
             //avec l'id on recup le coach
-            $db_handle = mysqli_connect('localhost', 'root', $MDP);
+            $db_handle = mysqli_connect('localhost:3306/push_n_pool', 'root', $MDP);
             $db_found = mysqli_select_db($db_handle, "push_n_pool");
             if ($db_found) {
-                $sql = "SELECT idCoach,idPerson FROM push_n_pool.coach where Activity = '" . $activity . "'";
+                $sql = "SELECT idCoach,idPerson,Office FROM push_n_pool.coach where Activity = '" . $activity . "'";
                 $result = mysqli_query($db_handle, $sql);
                 $row_cnt = $result->num_rows;
                 while ($data = mysqli_fetch_assoc($result)) {
                     $idCoach = $data['idCoach'];
                     $idperson = $data['idPerson'];
+                    $office =$data['Office'];
                 }
             } else {
                 echo "Database not found";
@@ -96,7 +135,7 @@
 
 
             //avec le coach on recup les date dans la tavle crenaux
-            $db_handle = mysqli_connect('localhost', 'root', $MDP);
+            $db_handle = mysqli_connect('localhost:3306/push_n_pool', 'root', $MDP);
             $db_found = mysqli_select_db($db_handle, "push_n_pool");
             $idDate = array();
 
@@ -117,7 +156,7 @@
 
             $DatePrise = array();
             for ($i = 0; $i < count($idDate); $i++) {
-                $db_handle = mysqli_connect('localhost', 'root', $MDP);
+                $db_handle = mysqli_connect('localhost:3306/push_n_pool', 'root', $MDP);
                 $db_found = mysqli_select_db($db_handle, "push_n_pool");
                 if ($db_found) {
                     $sql = "SELECT dateCol FROM push_n_pool.date where idDate = " . $idDate[$i];
@@ -138,7 +177,7 @@
             $verif = $semaine;
             $semaine = date("W", strtotime($semaine));
 
-            $db_handle = mysqli_connect('localhost', 'root', $MDP);
+            $db_handle = mysqli_connect('localhost:3306/push_n_pool', 'root', $MDP);
             $db_found = mysqli_select_db($db_handle, "push_n_pool");
             $DATE = array();
 
@@ -217,7 +256,7 @@
 
 
 
-            $db_handle = mysqli_connect('localhost', 'root', $MDP);
+            $db_handle = mysqli_connect('localhost:3306/push_n_pool', 'root', $MDP);
             $db_found = mysqli_select_db($db_handle, "push_n_pool");
             if ($db_found) {
                 $sql = "SELECT * FROM push_n_pool.person where idPerson = " . $idperson;
@@ -233,16 +272,32 @@
             }
             mysqli_close($db_handle);
             ?>
-        </table>
-        <input type='submit' value="Valider le RDV">
-        </br>
-        <?php echo $nom; ?>
-        </br>
-        <?php echo $mail; ?>
-        </br>
-        <?php echo $prenom; ?>
-        </br>
-        <?php echo $activity ?>
+        </table><br>
+        <div id="center">
+            <button type="submit" class="btn btn-light">Valider le RDV</button>
+            <a href="index.php"><button type="button" class="btn btn-light">Retour accueil</button></a>
+        </div><br>
+        <fieldset>
+          <div id="info">
+            <h1>Information concernant le Coach :</h1>
+            </br>
+            Nom : <?php echo $nom; ?>
+            </br>
+            Mail : <?php echo $mail; ?>
+            </br>
+            Prénom : <?php echo $prenom; ?>
+            </br>
+            Activité : <?php echo $activity ?>
+            <br>
+            Bureau : <?php echo $office ?>
+            <br><br><form action='recupCV.php' method='get'><button type='submit' class='btn btn-light' name='activity' value='<?php echo $activity ?>'>Voir le CV</button></form>
+          </div> <br>
+        </fieldset>
+        
+            
     </form>
-    <form action='recupCV.php' method='get'><button type='submit' class='btn btn-outline-dark' name='activity' value='<?php echo $activity ?>'>Voir le CV</button></form>
+            
+        
+        
+        
 </body>
