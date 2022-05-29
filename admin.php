@@ -43,7 +43,7 @@ session_start();
                     <input type="text" class="form-control" name="mail_coach" placeholder="Mail">
                 </div><br>
                 <div class="col-sm-5">
-                    <input type="text" class="form-control" name="mdp_coach" placeholder="Password">
+                    <input type="text" class="form-control" name="activity_coach" placeholder="Activity">
                 </div><br>
                 <div class="col-12">
                     <button type="submit" class="btn btn-outline-light">Supprimer Coach</button>
