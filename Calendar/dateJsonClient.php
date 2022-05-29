@@ -28,7 +28,7 @@ INNER JOIN coach
 INNER JOIN client
 	ON appointments.idClient = client.idClient
 INNER JOIN person
-	ON client.idPerson = person.idPerson AND person.Email=:email';
+	ON client.idPerson = person.idPerson AND person.Email=:email OR person.IdPerson = 1';
 $statement = $mysqlClient->prepare($sqlQuery);
 $statement->execute([
     'email' => $_GET['email'],
@@ -37,6 +37,11 @@ $st = $statement->fetchAll();
 
 // On affiche chaque les person une à une
 foreach ($st as $row) {
+    if ($row["idClient"] == 0) {
+        $color = "#ef6969";
+    } else {
+        $color = "#6a7ed7";
+    }
     $data[] = array(
         'title'   => $row["Activity"],
         'start'   => $row["dateCol"],

@@ -60,8 +60,6 @@ if ($res != null) {
 }
 
 
-
-
 for ($i = 0; $i < $diff['hour']; $i++) {
     //Recupere l'id de la date
     $sql = "SELECT * FROM date where dateCol=:dateS";
@@ -78,6 +76,18 @@ for ($i = 0; $i < $diff['hour']; $i++) {
         }
     } else {
         exit("NO DATE FOUND");
+    }
+
+    $sql = "SELECT * FROM push_n_pool.appointments WHERE idDate=:idDate and idClient='0'";
+    $q = $bdd->prepare($sql);
+    //$q->execute(array(':idClient' => $idClient, ':idCoach' => $idCoach, ':idDate' => $idDate));
+    $q->execute([
+        'idDate' => $date,
+    ]);
+    $res = $q->fetchAll();
+
+    if ($res != null) {
+        exit("DATE NON DISPONIBLE");
     }
 
     //Sauvegarde le creneaux dans la BDD
