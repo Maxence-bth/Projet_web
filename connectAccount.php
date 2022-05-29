@@ -2,8 +2,8 @@
 session_start();
 
 //wallah laisse mon mdp dans le code, mets le juste en commentaire et de-commente l'autre
-$MDP = 'romain2504';
-//$MDP = '';
+//$MDP = 'romain2504';
+$MDP = '';
 
 $mail = isset($_POST["mail"]) ? $_POST["mail"] : "";
 $password = isset($_POST["password"]) ? $_POST["password"] : "";
