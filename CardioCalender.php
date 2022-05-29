@@ -244,4 +244,5 @@
         </br>
         <?php echo $activity ?>
     </form>
+    <form action='recupCV.php' method='get'><button type='submit' class='btn btn-outline-dark' name='activity' value='<?php echo $activity?>'>Voir le CV</button></form>
 </body>

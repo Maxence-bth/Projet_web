@@ -82,6 +82,6 @@ $q->execute([
     'activity' => $activity,
     'idPerson' => $ID
 ]);
-header('Location: index.php');
+header('Location: formCV.html');
 exit();
 ?>

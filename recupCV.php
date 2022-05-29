@@ -1,8 +1,8 @@
 <?php
 $MDP = '';
 
-//$activity = $_GET['activity'];
-$activity = 'Cardio';
+$activity = $_GET['activity'];
+//$activity = 'Cardio';
 
 
 $db_handle = mysqli_connect('localhost', 'root', $MDP);
