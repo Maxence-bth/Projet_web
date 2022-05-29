@@ -1,0 +1,16 @@
+body{
+    background-image: url("images/piscine.png");
+}
+
+#title{
+    text-align: center;
+}
+
+#center{
+    text-align: center;
+    color: white;
+}
+
+fieldset{
+    background-color: #40463E;
+}
