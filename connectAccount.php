@@ -1,7 +1,8 @@
 <?php
 session_start();
 
-$MDP = '';
+//wallah laisse mon mdp dans le code, mets le juste en commentaire et de-commente l'autre
+$MDP = 'romain';
 //$MDP = '';
 
 $mail = isset($_POST["mail"]) ? $_POST["mail"] : "";
