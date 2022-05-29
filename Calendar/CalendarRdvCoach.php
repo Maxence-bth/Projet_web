@@ -27,8 +27,8 @@
               } else {
                 echo -1;
               } ?>;
-        alert("id user : " + arg + " -> " + arg == 0 ? true : false)
-        return arg == 0 ? true : false;
+        //alert("id user : " + arg + " -> " + (arg == 1 ? true : false))
+        return arg == 1 ? true : false;
       };
       var calendar = new FullCalendar.Calendar(calendarEl, {
         header: { //bouttons de navigation en haut
@@ -187,7 +187,7 @@
             <a class="nav-link active" aria-current="page" href="../parcourir.html">Parcourir</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="../rdv.html">Rendez-vous</a>
+            <a class="nav-link active" aria-current="page" href="CalendarRdvClient">Rendez-vous</a>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="../#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
