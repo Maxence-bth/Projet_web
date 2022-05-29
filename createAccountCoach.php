@@ -3,8 +3,8 @@
 
 <?php
 
-//$MDP = 'romain2504';
-$MDP = '';
+$MDP = 'romain2504';
+//$MDP = '';
 
 $Prenom = isset($_POST["prenom"]) ? $_POST["prenom"] : "";
 $nom = isset($_POST["nom"]) ? $_POST["nom"] : "";
@@ -19,7 +19,7 @@ $db_handle = mysqli_connect('localhost', 'root', $MDP);
 $db_found = mysqli_select_db($db_handle, "push_n_pool");
 // "INSERT INTO societedhonneur (ID,Prenom,Nom,DateAdhesion,Poste,Majeure,MoyenneCummulative,PaysEtudeInterl) VALUES (110, 'Manolo', 'Hina', '2018-03-15', 'VP_CONF', 'Information', 18.15, 'Canada')";
 if ($db_found) {
-    $sql = "SELECT * FROM push_n_pool.coach WHERE Activity = '".$activity."'";
+    $sql = "SELECT * FROM push_n_pool.coach WHERE Activity = '" . $activity . "'";
     $result = mysqli_query($db_handle, $sql);
     $row_cnt = $result->num_rows;
 } else {

@@ -1,5 +1,5 @@
 <?php
-$MDP = '';
+$MDP = 'romain2504';
 
 $activity = $_GET['activity'];
 //$activity = 'Cardio';
@@ -49,4 +49,3 @@ echo ($xml->formation);
 echo '</br>';
 echo ($xml->experience);
 echo '</br>';
-?>
