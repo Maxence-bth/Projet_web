@@ -38,12 +38,15 @@ $st = $statement->fetchAll();
 // On affiche chaque les person une à une
 foreach ($st as $row) {
     $data[] = array(
-        'idDate'   => $row["idDate"],
-        'idClient'   => $row["idClient"],
-        'idCoach'   => $row["idCoach"],
         'title'   => $row["Activity"],
         'start'   => $row["dateCol"],
-        'end'   => endSlot($row["dateCol"])
+        'end'   => endSlot($row["dateCol"]),
+        'extendedProps' => [
+            'idDate'   => $row["idDate"],
+            'idCoach'   => $row["idCoach"],
+            'idAppointments' => $row["idAppointments"],
+            'idClient'   => $row["idClient"],
+        ]
     );
 }
 

@@ -86,11 +86,11 @@
           _title = (_title ? _title : "occupied"),
             //alert("Activité : " + _title);
             $.ajax({
-              data: 'title=' + _title + '&start=' + start + '&end=' + end + '&idClient=' + $_SESSION['idClient'],
+              data: 'title=' + _title + '&start=' + start + '&end=' + end + '&idClient=' + <?php echo $_SESSION['idClient']; ?>,
               type: "POST",
               url: 'addEvent.php',
               success: function(data) {
-                alert("DATA : " + data);
+                //alert("DATA : " + data);
                 if (data == "OK") {
                   /*calendar.addEvent({
                     title: _title,
@@ -109,23 +109,24 @@
           calendar.unselect();
         },
         eventClick: function(arg) {
-          if (confirm("Are you sure you want to delete this event?")) {
+          var eventObj = arg.event
+          if (confirm("Are you sure you want to delete this event? : " + eventObj.extendedProps.idAppointments)) {
             var start = moment(arg.event.start).format('YYYY-MM-DDTHH:mm:ss');
             var end = moment(arg.event.end).format('YYYY-MM-DDTHH:mm:ss');
 
             $.ajax({
-              data: 'title=' + arg.event.title + '&start=' + start + '&end=' + end,
+              data: 'title=' + arg.event.title + '&start=' + start + '&end=' + end + '&idAppointments=' + eventObj.extendedProps.idAppointments,
               type: "POST",
-              url: 'deleteEvent.php',
+              url: 'deleteEventsId.php',
               success: function(data) {
-                alert("DATA : " + data);
+                //alert("DATA : " + data);
                 if (data == "OK") {
                   /*calendar.addEvent({
                     title: _title,
                     start: arg.start,
                     end: arg.end,
                   });*/
-                  alert("Rendez-vous supprimer avec succès");
+                  alert("Evènement supprimer avec succès");
                 } else {
                   alert("Erreur lors de la suppression de l'évènement " + arg.event.title + ". Reessayez.\n Erreur: " + data);
                   //arg.event.remove();
