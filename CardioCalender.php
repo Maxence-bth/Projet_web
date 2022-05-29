@@ -98,7 +98,7 @@
     <form action="RDVthankyou.php" method="post">
         <table>
             <?php
-            $MDP = '';
+            $MDP = 'maxou2001';
 
             $activity = isset($_POST["activity"]) ? $_POST["activity"] : ""; //mettre la l'activiter a differencier quand on click
 
@@ -148,9 +148,9 @@
                 echo "Database not found";
             }
 
-
+            
             mysqli_close($db_handle);
-
+            
             $DatePrise = array();
             for ($i = 0; $i < count($idDate); $i++) {
                 $db_handle = mysqli_connect('localhost:3306/push_n_pool', 'root', $MDP);
@@ -289,17 +289,21 @@
                 Bureau : <?php echo $office ?>
                 <br><br>
                 
-            </div> <br>
+            </div>
         </fieldset>
 
 
     </form>
-
+    <fieldset>
+        <br>
+      <div id="info">     
     <form action='recupCV.php' method='get'>
                     <button type='submit' class='btn btn-light' name='activity' value='<?php echo $activity ?>'>
                         Voir le CV
                     </button>
                 </form>
-
+    </div>  
+    </fieldset>
+    
 
 </body>
