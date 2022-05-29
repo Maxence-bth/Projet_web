@@ -1,22 +1,4 @@
-<!DOCTYPE html>
-<html>
 
-<head>
-  <meta charset="utf-8" />
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css">
-
-</head>
-
-<body>
-  <br>
-
-  <div id="btn">
-    <a href="index.php"><img src="images/acc.png" alt="erreur" width="150" height="40" /></a>
-  </div>
-</body>
-
-</html>
 
 
 <?php
@@ -76,6 +58,6 @@ if ($db_found) {
 mysqli_close($db_handle);
 
 //header("location: http://127.0.0.1:8888/projet_web/index.html");
+header('Location: index.php');
+exit();
 ?>
-
-</html>
