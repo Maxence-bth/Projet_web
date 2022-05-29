@@ -28,8 +28,22 @@
           <input type="text" class="form-control" name="prenom" placeholder="Prénom">
         </div><br>
         <div class="col-sm-5">
-
-          <input type="text" class="form-control" name="activity" placeholder="Activité">
+        <select name="activity" id="">
+           <option valeur="Basket">Basketball</option>
+   <option valeur="Biking">Biking</option>
+   <option valeur="Tennis">Tennis</option>
+   <option valeur="Rugny">Rugny</option>
+   <option valeur="Musculation">Biking</option>
+   <option valeur="Collectif">Collectif</option>
+   <option valeur="Fitness">Fitness</option>
+   <option valeur="Foot">Foot</option>
+   <option valeur="Natation">Natation</option>
+   <option valeur="Plongeon">Plongeon</option>
+   
+   
+        </select>
+  
+          <?php //<input type="text" class="form-control" name="activity" placeholder="Activité">?>
         </div><br>
         <div class="col-sm-5">
 
