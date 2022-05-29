@@ -59,9 +59,11 @@ mysqli_close($db_handle);
 //alert('Welcome " . $_SESSION['Surname'] . " " . $_SESSION['Name'] . ". You are now connected.'); 
 //window.history.go(-1);
 //</script>";
+
+header('Location: index.php');
+exit();
 ?>
 <html>
 </br>
-<a href='index.php'>revenir a la page d'acceuil</a>
 
 </html>

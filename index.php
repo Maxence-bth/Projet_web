@@ -57,7 +57,15 @@
               <li><a class="dropdown-item" href="admin.php">Administrateurs</a></li>
             </ul>
           </li>
-
+          <li class="nav-item">
+            <?php
+            if ($_SESSION != null) {
+              
+              echo "<a class='nav-link active' aria-current='page' href='Deco.php'>Deconnexion</a>";
+            }
+            ?>
+            <!-- <a class="nav-link active" aria-current="page" href="rdv.html">Rendez-vous</a> -->
+          </li>
         </ul>
         <form class="d-flex" action="recherche.php" method="get">
           <input class="form-control me-2" type="search" placeholder="Rechercher" aria-label="Search" name="rechercheStr">
