@@ -7,7 +7,7 @@ session_start();
 
 <head>
     <?php
-    $MDP= '';
+    $MDP = 'romain2504';
     $rdv = isset($_POST["inputRDV"]) ? $_POST["inputRDV"] : "";
     //echo $rdv;
     $db_handle = mysqli_connect('localhost', 'root', $MDP);
@@ -26,7 +26,7 @@ session_start();
     $db_handle = mysqli_connect('localhost', 'root', $MDP);
     $db_found = mysqli_select_db($db_handle, "push_n_pool");
     if ($db_found) {
-        $sql = "SELECT idClient FROM push_n_pool.client where idPerson = ".$idPerson."";
+        $sql = "SELECT idClient FROM push_n_pool.client where idPerson = " . $idPerson . "";
         $result = mysqli_query($db_handle, $sql);
 
         while ($data = mysqli_fetch_assoc($result)) {
