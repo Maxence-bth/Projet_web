@@ -1,35 +1,34 @@
 <html>
 
 <head>
-<meta charset="utf-8" />
+    <meta charset="utf-8" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
     <style type="text/css">
-
-        body{
+        body {
             background-image: url("images/piscine.png");
         }
 
-        #title{
-        text-align: center;
+        #title {
+            text-align: center;
         }
 
-        #center{
+        #center {
             margin-left: 40%;
         }
 
-        #info{
+        #info {
             color: white;
             font-size: x-large;
             text-align: center;
         }
 
-        h1{
+        h1 {
             font: bold;
         }
 
-        fieldset{
+        fieldset {
             background-color: #40463E;
         }
 
@@ -87,8 +86,6 @@
         td.time {
             width: 5%;
         }
-
-
     </style>
 
 </head>
@@ -117,7 +114,7 @@
                 while ($data = mysqli_fetch_assoc($result)) {
                     $idCoach = $data['idCoach'];
                     $idperson = $data['idPerson'];
-                    $office =$data['Office'];
+                    $office = $data['Office'];
                 }
             } else {
                 echo "Database not found";
@@ -278,26 +275,31 @@
             <a href="index.php"><button type="button" class="btn btn-light">Retour accueil</button></a>
         </div><br>
         <fieldset>
-          <div id="info">
-            <h1>Information concernant le Coach :</h1>
-            </br>
-            Nom : <?php echo $nom; ?>
-            </br>
-            Mail : <?php echo $mail; ?>
-            </br>
-            Prénom : <?php echo $prenom; ?>
-            </br>
-            Activité : <?php echo $activity ?>
-            <br>
-            Bureau : <?php echo $office ?>
-            <br><br><form action='recupCV.php' method='get'><button type='submit' class='btn btn-light' name='activity' value='<?php echo $activity ?>'>Voir le CV</button></form>
-          </div> <br>
+            <div id="info">
+                <h1>Information concernant le Coach :</h1>
+                </br>
+                Nom : <?php echo $nom; ?>
+                </br>
+                Mail : <?php echo $mail; ?>
+                </br>
+                Prénom : <?php echo $prenom; ?>
+                </br>
+                Activité : <?php echo $activity ?>
+                <br>
+                Bureau : <?php echo $office ?>
+                <br><br>
+                
+            </div> <br>
         </fieldset>
-        
-            
+
+
     </form>
-            
-        
-        
-        
+
+    <form action='recupCV.php' method='get'>
+                    <button type='submit' class='btn btn-light' name='activity' value='<?php echo $activity ?>'>
+                        Voir le CV
+                    </button>
+                </form>
+
+
 </body>
