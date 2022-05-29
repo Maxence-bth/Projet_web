@@ -1,7 +1,8 @@
 <?php
 session_start();
 
-$email = $_POST['mail_coach'];
+$email = isset($_POST['mail_coach']) ? $_POST['mail_coach'] : ".";
+$activity = isset($_POST['activity_coach']) ? $_POST['activity_coach'] : ".";
 
 // connexion à la base de données
 try {
@@ -11,65 +12,46 @@ try {
 }
 
 
-//recupere l'id du coach correspondant à l'activité
-$sql = "SELECT * FROM coach where Email=:email";
+//recupere l'id du coach correspondant à l'email
+$sql = "SELECT * FROM coach INNER JOIN person 
+                ON person.idPerson = coach.idPerson 
+                and (person.Email=:email or coach.Activity=:activity)";
 $q = $bdd->prepare($sql);
 $q->execute([
     'email' => $email,
+    'activity' => $activity,
 ]);
 $res = $q->fetchAll();
 
 if ($res != null) {
     foreach ($res as $r) {
         $idCoach = $r['idCoach'];
+        $idPerson = $r['idPerson'];
     }
 } else {
-    //echo json_encode(array('success' => false));
-    //throw new Exception();
     exit("NO COACH FOUND");
-    //exit($title);
 }
 
-$sqlQuery = 'select person.idPerson, appointments.idAppointments FROM appointments
-            INNER JOIN coach
-                ON coach.idCoach = appointments.idCoach AND coach.Activity = :activity
-            INNER JOIN person
-                ON coach.idPerson = person.idPerson';
-$statement = $mysqlClient->prepare($sqlQuery);
-$statement->execute([
-    'activity' => $_GET['activity'],
-]);
-
-
-//Trouve le creneaux dans la BDD
-$sql = "SELECT (idAppointments) FROM push_n_pool.appointments
-INNER JOIN coach ON appointments.idCoach = coach.idCoach
-                AND coach.Activity = :activity 
-                AND appointments.idClient = :idClient 
-                AND appointments.idDate = :idDate";
+$sql = 'DELETE FROM appointments WHERE idCoach=:idCoach';
 $q = $bdd->prepare($sql);
 $q->execute([
-    'activity' => $title,
-    'idClient' => $idClient,
-    'idDate' => $idDate
+    'idCoach' => $idCoach,
 ]);
-$res = $q->fetchAll();
-if ($res != null) {
-    foreach ($res as $r) {
-        $idAppointments = $r['idAppointments'];
-    }
-} else {
-    exit("NO APPOINTMENTS FOUND");
-}
 
-
-//Supprime le creneaux dans la BDD
-$sql = "DELETE FROM push_n_pool.appointments
-WHERE appointments.idAppointments = :idAppointments ";
+$sql = 'DELETE FROM coach WHERE idCoach=:idCoach';
 $q = $bdd->prepare($sql);
 $q->execute([
-    'idAppointments' => $idAppointments,
+    'idCoach' => $idCoach,
 ]);
 
+$sql = 'DELETE FROM person WHERE idPerson=:idPerson';
+$q = $bdd->prepare($sql);
+$q->execute([
+    'idPerson' => $idPerson,
+]);
 
+echo "<script>
+alert('Coach deleted successfully'); 
+window.history.go(-1);
+</script>";
 exit("OK");

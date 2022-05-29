@@ -2,7 +2,7 @@
 session_start();
 
 //wallah laisse mon mdp dans le code, mets le juste en commentaire et de-commente l'autre
-$MDP = 'romain';
+$MDP = 'romain2504';
 //$MDP = '';
 
 $mail = isset($_POST["mail"]) ? $_POST["mail"] : "";
@@ -55,6 +55,10 @@ if ($data != null) {
     //echo 'coach';
 }
 mysqli_close($db_handle);
+//echo "<script>
+//alert('Welcome " . $_SESSION['Surname'] . " " . $_SESSION['Name'] . ". You are now connected.'); 
+//window.history.go(-1);
+//</script>";
 ?>
 <html>
 </br>
