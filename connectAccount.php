@@ -55,9 +55,11 @@ if ($data != null) {
     //echo 'coach';
 }
 mysqli_close($db_handle);
+
+header('Location: index.php');
+exit();
 ?>
 <html>
 </br>
-<a href='index.php'>revenir a la page d'acceuil</a>
 
 </html>
