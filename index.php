@@ -60,7 +60,7 @@
           <li class="nav-item">
             <?php
             if ($_SESSION != null) {
-              
+
               echo "<a class='nav-link active' aria-current='page' href='Deco.php'>Deconnexion</a>";
             }
             ?>

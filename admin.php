@@ -1,6 +1,16 @@
 <?php
 session_start();
 
+/*echo "<script>
+    alert('Bienvenue mon boug : " . $_SESSION['idPerson'] . "'); 
+    </script>";*/
+
+if (!isset($_SESSION['idPerson']) || $_SESSION['idPerson'] != 1) {
+    echo "<script>
+    alert('Connectez vous avec le compte admin pour accéder à cette page.'); 
+    window.history.go(-1);
+    </script>";
+}
 ?>
 
 <!DOCTYPE html>
@@ -16,18 +26,19 @@ session_start();
 </head>
 
 <body>
+    <!-- <h1>Bienvenue : <?php echo $_SESSION['idPerson'] . "_" . $_SESSION['Nom']; ?></h1> -->
     <div id="title">
         <p> <img src="images/title.png" alt="erreur" width="400" height="100"></p>
     </div><br>
     <div id="left">
         <h1>Supprimer un client</h1>
-        <form action="" method="post">
-            <form class="row g-3">
+        <form action="deleteClient.php" method="post">
+            <form class="row g-3" id="formulaire">
                 <div class="col-sm-5">
                     <input type="text" class="form-control" name="mail_client" placeholder="Mail">
                 </div><br>
                 <div class="col-sm-5">
-                    <input type="text" class="form-control" name="mdp_client" placeholder="Password">
+                    <input type="text" class="form-control" name="id_client" placeholder="Id Client">
                 </div><br>
                 <div class="col-12">
                     <button type="submit" class="btn btn-outline-light">Supprimer Client</button>
