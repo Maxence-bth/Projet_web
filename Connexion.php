@@ -33,18 +33,27 @@ session_start();
         <div class="col-sm-5">
           <input type="text" class="form-control" name="password" placeholder="Password">
         </div><br><br>
+
+        <div class="center" action = "connexion.js">
+          <h2 id="captchaHeading">Captcha</h2>
+          <div id="captchaBackground">
+            <canvas id="captcha">captcha text</canvas>
+            <input id="textBox" type="text" name="text"><br>
+            <div id="buttons">
+             <script src="connexion.js"></script><input id="submitButton" class="btn btn-outline-danger" type="button" value="Envoyer" src="connexion.js"> </input>
+             <script src="connexion.js"></script><input id="refreshButton" class="btn btn-outline-danger" type="button" value="Refresh" src="connexion.js"></input><br>
+            </div>
+            <span id="output"></span>
+          </div>
+        </div>
+        
         <div class="col-12">
           <button type="submit" class="btn btn-outline-danger">Valider</button>
           <a href="index.php"><button type="button" class="btn btn-outline-danger">Retour accueil</button></a>
         </div>
       </form>
-
     </form>
   </div>
-
-
-
-
 </body>
 
 </html>
