@@ -113,7 +113,6 @@
               calendar.refetchEvents();
             },
           })
-
           calendar.unselect();
         },
         eventClick: function(arg) {
@@ -217,7 +216,7 @@
   </nav> <br>
 
   <h1 align="center"> Calendrier de <?php echo $_GET['activity'] ?></h1>
-  <h2 align="center"> <?php if ($_SESSION['idPerson'] == 1) {
+  <h2 align="center"> <?php if (isset($_SESSION['idPerson']) && $_SESSION['idPerson'] == 1) {
                         echo "Selectionnez les jours de repos";
                       } else {
                         echo "Ajouter / Supprimer des rendez-vous";

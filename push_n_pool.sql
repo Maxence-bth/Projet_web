@@ -36,7 +36,7 @@ CREATE TABLE `appointments` (
   CONSTRAINT `idClient` FOREIGN KEY (`idClient`) REFERENCES `client` (`idClient`),
   CONSTRAINT `idCoach` FOREIGN KEY (`idCoach`) REFERENCES `coach` (`idCoach`),
   CONSTRAINT `idDate` FOREIGN KEY (`idDate`) REFERENCES `date` (`idDate`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=139 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -45,7 +45,7 @@ CREATE TABLE `appointments` (
 
 LOCK TABLES `appointments` WRITE;
 /*!40000 ALTER TABLE `appointments` DISABLE KEYS */;
-INSERT INTO `appointments` VALUES (1,2,1,41),(2,2,1,43),(3,2,1,44);
+INSERT INTO `appointments` VALUES (1,1,1,41),(2,2,2,43),(3,2,2,44),(4,1,1,60),(5,1,1,105),(6,1,1,42),(7,1,2,105),(15,2,1,54),(16,2,2,56),(17,2,1,67),(18,2,1,28),(19,2,1,30),(20,2,1,31),(21,2,2,22),(22,2,1,35),(25,0,1,48),(26,0,1,49),(27,0,1,36),(28,0,1,138),(29,0,1,139),(30,0,1,140),(31,0,1,141),(33,0,1,145),(34,0,2,128),(35,0,1,142),(36,2,2,140),(37,2,2,141),(42,2,1,133),(43,2,1,120),(44,2,1,121),(45,2,1,122),(47,2,2,153),(48,0,1,151),(49,0,1,152),(50,0,1,153),(51,0,1,154),(52,0,1,155),(53,0,1,158),(54,0,1,159),(55,0,1,160),(56,0,1,161),(57,0,1,162),(58,0,1,163),(59,0,1,164),(60,0,1,165),(61,0,1,166),(62,0,1,167),(63,0,1,168),(64,0,1,146),(65,0,1,147),(66,0,1,148),(67,0,1,149),(69,0,1,106),(70,0,1,107),(71,0,1,108),(72,0,1,109),(73,0,1,110),(74,0,1,111),(75,0,1,150),(78,0,2,158),(79,0,2,159),(80,0,2,160),(81,0,2,161),(82,0,2,162),(83,0,2,163),(85,2,2,146),(106,2,10,134),(107,7,1,121),(108,7,1,122),(109,7,1,123),(110,7,2,125),(111,7,2,126),(112,7,2,127),(113,7,21,141),(114,7,21,142),(115,7,21,231),(116,7,21,232),(117,7,10,226),(118,7,10,227),(119,7,10,228),(120,7,16,204),(121,7,16,205),(122,6,2,158),(123,6,2,159),(124,6,2,160),(125,6,19,147),(126,6,19,148),(127,6,19,149),(128,6,19,150),(129,6,19,237),(130,6,19,238),(131,6,19,239),(132,6,19,240),(133,6,19,241),(134,6,20,249),(135,6,20,250),(136,6,20,251),(137,6,21,203),(138,6,21,204);
 /*!40000 ALTER TABLE `appointments` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -61,10 +61,11 @@ CREATE TABLE `client` (
   `Student_card` varchar(45) DEFAULT NULL,
   `Adress` varchar(45) DEFAULT NULL,
   `idPerson` int NOT NULL,
+  `abonnement` int DEFAULT '1',
   PRIMARY KEY (`idClient`),
   KEY `idPerson_idx` (`idPerson`),
   CONSTRAINT `idPerson_client` FOREIGN KEY (`idPerson`) REFERENCES `person` (`idPerson`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -73,7 +74,7 @@ CREATE TABLE `client` (
 
 LOCK TABLES `client` WRITE;
 /*!40000 ALTER TABLE `client` DISABLE KEYS */;
-INSERT INTO `client` VALUES (1,'Maxx','75',2),(2,'Hermm','94',4),(3,'Lucc','94',3);
+INSERT INTO `client` VALUES (0,'romain','Elancourt',1,1),(1,'Maxx','75',2,1),(2,'JPS','Le Sud',5,1),(5,'miami demon','SomeWhere',6,1),(6,'lulu','Montreuil',3,1),(7,'herm','Saint MOORE',4,1);
 /*!40000 ALTER TABLE `client` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -89,10 +90,11 @@ CREATE TABLE `coach` (
   `Office` varchar(45) DEFAULT NULL,
   `Activity` varchar(45) NOT NULL,
   `idPerson` int NOT NULL,
+  `cvXml` blob,
   PRIMARY KEY (`idCoach`),
   KEY `id_Person_idx` (`idPerson`),
   CONSTRAINT `idPerson_coach` FOREIGN KEY (`idPerson`) REFERENCES `person` (`idPerson`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -101,7 +103,7 @@ CREATE TABLE `coach` (
 
 LOCK TABLES `coach` WRITE;
 /*!40000 ALTER TABLE `coach` DISABLE KEYS */;
-INSERT INTO `coach` VALUES (1,'p230','Fitness',3);
+INSERT INTO `coach` VALUES (1,'p230','Fitness',27,NULL),(2,'p432','Biking',26,NULL),(10,'P320','Musculation',28,NULL),(13,'P423','Squash',17,NULL),(14,'p501','Cours Collectifs',18,NULL),(15,'p502','Basket',19,NULL),(16,'p503','Foot',20,NULL),(17,'p504','Rugby',21,NULL),(18,'p505','Tennis',22,NULL),(19,'p506','Natation',23,NULL),(20,'p507','Plongeon',23,NULL),(21,'p506','Cardio',25,NULL);
 /*!40000 ALTER TABLE `coach` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -117,7 +119,7 @@ CREATE TABLE `date` (
   `dateCol` datetime NOT NULL,
   PRIMARY KEY (`idDate`),
   UNIQUE KEY `Datecol_UNIQUE` (`dateCol`)
-) ENGINE=InnoDB AUTO_INCREMENT=372 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=372 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -142,7 +144,7 @@ CREATE TABLE `payments` (
   `amount` int DEFAULT NULL,
   `object` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`idPayments`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -168,8 +170,9 @@ CREATE TABLE `person` (
   `Email` varchar(45) NOT NULL,
   `password` varchar(45) NOT NULL,
   PRIMARY KEY (`idPerson`),
-  UNIQUE KEY `idPerson_UNIQUE` (`idPerson`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+  UNIQUE KEY `idPerson_UNIQUE` (`idPerson`),
+  UNIQUE KEY `Email_UNIQUE` (`Email`)
+) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -178,7 +181,7 @@ CREATE TABLE `person` (
 
 LOCK TABLES `person` WRITE;
 /*!40000 ALTER TABLE `person` DISABLE KEYS */;
-INSERT INTO `person` VALUES (1,'Senhadji','Romain','romain.senhadji@edu.ece.fr','1234'),(2,'Barth','Maxence','maxence.barth@edu.ece.fr','1234'),(3,'Lucas','Sacomman','lucas.sacomman@edu.ece.fr','1234'),(4,'Carpentier','Hermione','hermione.carpentier@edu.ece.fr','1234');
+INSERT INTO `person` VALUES (1,'Senhadji','Romain','romain.senhadji@edu.ece.fr','1234'),(2,'Barth','Maxence','maxence.barth@edu.ece.fr','1234'),(3,'Sacomman','Lucas','lucas.sacomman@edu.ece.fr','1234'),(4,'Carpentier','Hermione','hermione.carpentier@edu.ece.fr','1234'),(5,'Segado','Jean-Pierre','jeanpierre.segado@edu.ece.fr','1234'),(6,'Dog','Miami','miami.dog@edu.ece.fr','1234'),(12,'Lagnaoui','Youness','youness.lagnaoui@edu.ece.fr','1234'),(17,'Clement','Paul','paul.clement@edu.ece.fr','1234'),(18,'Coach','CoursCo','coach.CoursCo@edu.ece.fr','1234'),(19,'Coach','Basket','coach.basket@edu.ece.fr','1234'),(20,'Coach','Foot','coach.foot@edu.ece.fr','1234'),(21,'Coach','Rugby','coach.rugby@edu.ece.fr','1234'),(22,'Coach','Tennis','coach.tennis@edu.ece.fr','1234'),(23,'Coach','Natation','coach.natation@edu.ece.fr','1234'),(25,'Coach','Cardio','coach.cardio@edu.ece.fr','1234'),(26,'Coach','Biking','coach.biking@edu.ece.fr','1234'),(27,'Coach','Fitness','coach.fitness@edu.ece.fr','1234'),(28,'Coach','Muscu','coach.musculation@edu.ece.fr','1234');
 /*!40000 ALTER TABLE `person` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -191,4 +194,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-05-25 12:13:07
+-- Dump completed on 2022-05-29 21:33:46

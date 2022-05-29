@@ -3,8 +3,8 @@
 
 <?php
 
-//$MDP = 'romain2504';
-$MDP = '';
+$MDP = 'romain2504';
+//$MDP = '';
 
 $Prenom = isset($_POST["prenom"]) ? $_POST["prenom"] : "";
 $nom = isset($_POST["nom"]) ? $_POST["nom"] : "";

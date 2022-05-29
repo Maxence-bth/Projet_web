@@ -204,17 +204,10 @@
   </nav> <br>
 
   <h2 align="center">Info Client</h2>
-  <p align="center">Info 1</p>
-  <p align="center">Info 2</p>
-  <p align="center">Info 3</p> <br>
   <h1 align="center"> Calendrier de <?php echo $_SESSION['Nom'] . " " . $_SESSION['Prenom'] ?></h1>
   <div id="calendar" class="image-div"></div> <br>
 
   <h2 align="center">Abonnement</h2>
-  <p align="center">Info 1</p>
-  <p align="center">Info 2</p>
-  <p align="center">Info 3</p> <br>
-
   <br>
   <br>
   <br>
