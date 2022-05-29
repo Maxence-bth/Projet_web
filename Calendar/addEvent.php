@@ -78,11 +78,12 @@ for ($i = 0; $i < $diff['hour']; $i++) {
         exit("NO DATE FOUND");
     }
 
-    $sql = "SELECT * FROM push_n_pool.appointments WHERE idDate=:idDate and idClient='0'";
+    $sql = "SELECT * FROM push_n_pool.appointments WHERE idDate=:idDate and idClient='0' and idCoach=:idCoach";
     $q = $bdd->prepare($sql);
     //$q->execute(array(':idClient' => $idClient, ':idCoach' => $idCoach, ':idDate' => $idDate));
     $q->execute([
-        'idDate' => $date,
+        'idDate' => $idDate,
+        'idCoach' => $idCoach,
     ]);
     $res = $q->fetchAll();
 

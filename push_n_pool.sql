@@ -36,7 +36,7 @@ CREATE TABLE `appointments` (
   CONSTRAINT `idClient` FOREIGN KEY (`idClient`) REFERENCES `client` (`idClient`),
   CONSTRAINT `idCoach` FOREIGN KEY (`idCoach`) REFERENCES `coach` (`idCoach`),
   CONSTRAINT `idDate` FOREIGN KEY (`idDate`) REFERENCES `date` (`idDate`)
-) ENGINE=InnoDB AUTO_INCREMENT=161 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=187 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -45,7 +45,7 @@ CREATE TABLE `appointments` (
 
 LOCK TABLES `appointments` WRITE;
 /*!40000 ALTER TABLE `appointments` DISABLE KEYS */;
-INSERT INTO `appointments` VALUES (1,1,1,41),(2,2,2,43),(3,2,2,44),(4,1,1,60),(5,1,1,105),(6,1,1,42),(7,1,2,105),(15,2,1,54),(16,2,2,56),(17,2,1,67),(18,2,1,28),(19,2,1,30),(20,2,1,31),(21,2,2,22),(22,2,1,35),(25,0,1,48),(26,0,1,49),(27,0,1,36),(28,0,1,138),(29,0,1,139),(30,0,1,140),(31,0,1,141),(33,0,1,145),(34,0,2,128),(35,0,1,142),(36,2,2,140),(37,2,2,141),(42,2,1,133),(43,2,1,120),(44,2,1,121),(45,2,1,122),(47,2,2,153),(48,0,1,151),(49,0,1,152),(50,0,1,153),(51,0,1,154),(52,0,1,155),(53,0,1,158),(54,0,1,159),(55,0,1,160),(56,0,1,161),(57,0,1,162),(58,0,1,163),(59,0,1,164),(60,0,1,165),(61,0,1,166),(62,0,1,167),(63,0,1,168),(64,0,1,146),(65,0,1,147),(66,0,1,148),(67,0,1,149),(69,0,1,106),(70,0,1,107),(71,0,1,108),(72,0,1,109),(73,0,1,110),(74,0,1,111),(75,0,1,150),(78,0,2,158),(79,0,2,159),(80,0,2,160),(81,0,2,161),(82,0,2,162),(83,0,2,163),(85,2,2,146),(106,2,10,134),(107,7,1,121),(108,7,1,122),(109,7,1,123),(110,7,2,125),(111,7,2,126),(112,7,2,127),(113,7,21,141),(114,7,21,142),(115,7,21,231),(116,7,21,232),(117,7,10,226),(118,7,10,227),(119,7,10,228),(120,7,16,204),(121,7,16,205),(122,6,2,158),(123,6,2,159),(124,6,2,160),(125,6,19,147),(126,6,19,148),(127,6,19,149),(128,6,19,150),(129,6,19,237),(130,6,19,238),(131,6,19,239),(132,6,19,240),(133,6,19,241),(134,6,20,249),(135,6,20,250),(136,6,20,251),(137,6,21,203),(138,6,21,204),(139,0,19,242),(140,0,19,243),(141,0,19,244),(142,0,19,245),(143,0,19,246),(144,0,19,249),(145,0,19,250),(146,0,19,251),(147,0,19,252),(148,0,19,253),(149,0,19,254),(150,0,19,255),(151,0,19,256),(152,0,19,257),(153,0,19,258),(154,0,19,259),(155,0,19,262),(156,0,19,263),(157,0,19,264),(158,0,19,265),(159,0,19,266),(160,0,19,267);
+INSERT INTO `appointments` VALUES (1,1,1,41),(2,2,2,43),(3,2,2,44),(4,1,1,60),(5,1,1,105),(6,1,1,42),(7,1,2,105),(15,2,1,54),(16,2,2,56),(17,2,1,67),(18,2,1,28),(19,2,1,30),(20,2,1,31),(21,2,2,22),(22,2,1,35),(25,0,1,48),(26,0,1,49),(27,0,1,36),(28,0,1,138),(29,0,1,139),(30,0,1,140),(31,0,1,141),(33,0,1,145),(34,0,2,128),(35,0,1,142),(36,2,2,140),(37,2,2,141),(42,2,1,133),(43,2,1,120),(44,2,1,121),(45,2,1,122),(47,2,2,153),(48,0,1,151),(49,0,1,152),(50,0,1,153),(51,0,1,154),(52,0,1,155),(53,0,1,158),(54,0,1,159),(55,0,1,160),(56,0,1,161),(57,0,1,162),(58,0,1,163),(59,0,1,164),(60,0,1,165),(61,0,1,166),(62,0,1,167),(63,0,1,168),(64,0,1,146),(65,0,1,147),(66,0,1,148),(67,0,1,149),(69,0,1,106),(70,0,1,107),(71,0,1,108),(72,0,1,109),(73,0,1,110),(74,0,1,111),(75,0,1,150),(78,0,2,158),(79,0,2,159),(80,0,2,160),(81,0,2,161),(82,0,2,162),(83,0,2,163),(85,2,2,146),(106,2,10,134),(107,7,1,121),(108,7,1,122),(109,7,1,123),(110,7,2,125),(111,7,2,126),(112,7,2,127),(113,7,21,141),(114,7,21,142),(115,7,21,231),(116,7,21,232),(117,7,10,226),(118,7,10,227),(119,7,10,228),(120,7,16,204),(121,7,16,205),(122,6,2,158),(123,6,2,159),(124,6,2,160),(125,6,19,147),(126,6,19,148),(127,6,19,149),(128,6,19,150),(129,6,19,237),(130,6,19,238),(131,6,19,239),(132,6,19,240),(133,6,19,241),(134,6,20,249),(135,6,20,250),(136,6,20,251),(137,6,21,203),(138,6,21,204),(139,0,19,242),(140,0,19,243),(141,0,19,244),(142,0,19,245),(143,0,19,246),(144,0,19,249),(145,0,19,250),(146,0,19,251),(147,0,19,252),(148,0,19,253),(149,0,19,254),(150,0,19,255),(151,0,19,256),(152,0,19,257),(153,0,19,258),(154,0,19,259),(155,0,19,262),(156,0,19,263),(157,0,19,264),(158,0,19,265),(159,0,19,266),(160,0,19,267),(161,2,1,132),(163,2,1,242),(174,2,2,218),(175,2,2,219),(176,2,19,238),(177,2,19,239),(178,2,19,240),(185,2,19,229),(186,2,19,230);
 /*!40000 ALTER TABLE `appointments` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -90,7 +90,6 @@ CREATE TABLE `coach` (
   `Office` varchar(45) DEFAULT NULL,
   `Activity` varchar(45) NOT NULL,
   `idPerson` int NOT NULL,
-  `cvXml` blob,
   PRIMARY KEY (`idCoach`),
   KEY `id_Person_idx` (`idPerson`),
   CONSTRAINT `idPerson_coach` FOREIGN KEY (`idPerson`) REFERENCES `person` (`idPerson`)
@@ -103,7 +102,7 @@ CREATE TABLE `coach` (
 
 LOCK TABLES `coach` WRITE;
 /*!40000 ALTER TABLE `coach` DISABLE KEYS */;
-INSERT INTO `coach` VALUES (1,'p230','Fitness',27,NULL),(2,'p432','Biking',26,NULL),(10,'P320','Musculation',28,NULL),(13,'P423','Squash',17,NULL),(14,'p501','Cours Collectifs',18,NULL),(15,'p502','Basket',19,NULL),(16,'p503','Foot',20,NULL),(17,'p504','Rugby',21,NULL),(18,'p505','Tennis',22,NULL),(19,'p506','Natation',23,NULL),(20,'p507','Plongeon',23,NULL),(21,'p506','Cardio',25,NULL);
+INSERT INTO `coach` VALUES (1,'p230','Fitness',27),(2,'p432','Biking',26),(10,'P320','Musculation',28),(14,'p501','Cours Collectifs',18),(15,'p502','Basket',19),(16,'p503','Foot',20),(17,'p504','Rugby',21),(18,'p505','Tennis',22),(19,'p506','Natation',23),(20,'p507','Plongeon',29),(21,'p506','Cardio',25);
 /*!40000 ALTER TABLE `coach` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -172,7 +171,7 @@ CREATE TABLE `person` (
   PRIMARY KEY (`idPerson`),
   UNIQUE KEY `idPerson_UNIQUE` (`idPerson`),
   UNIQUE KEY `Email_UNIQUE` (`Email`)
-) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -181,7 +180,7 @@ CREATE TABLE `person` (
 
 LOCK TABLES `person` WRITE;
 /*!40000 ALTER TABLE `person` DISABLE KEYS */;
-INSERT INTO `person` VALUES (1,'Senhadji','Romain','romain.senhadji@edu.ece.fr','1234'),(2,'Barth','Maxence','maxence.barth@edu.ece.fr','1234'),(3,'Sacomman','Lucas','lucas.sacomman@edu.ece.fr','1234'),(4,'Carpentier','Hermione','hermione.carpentier@edu.ece.fr','1234'),(5,'Segado','Jean-Pierre','jeanpierre.segado@edu.ece.fr','1234'),(6,'Dog','Miami','miami.dog@edu.ece.fr','1234'),(12,'Lagnaoui','Youness','youness.lagnaoui@edu.ece.fr','1234'),(17,'Clement','Paul','paul.clement@edu.ece.fr','1234'),(18,'Coach','CoursCo','coach.CoursCo@edu.ece.fr','1234'),(19,'Coach','Basket','coach.basket@edu.ece.fr','1234'),(20,'Coach','Foot','coach.foot@edu.ece.fr','1234'),(21,'Coach','Rugby','coach.rugby@edu.ece.fr','1234'),(22,'Coach','Tennis','coach.tennis@edu.ece.fr','1234'),(23,'Coach','Natation','coach.natation@edu.ece.fr','1234'),(25,'Coach','Cardio','coach.cardio@edu.ece.fr','1234'),(26,'Coach','Biking','coach.biking@edu.ece.fr','1234'),(27,'Coach','Fitness','coach.fitness@edu.ece.fr','1234'),(28,'Coach','Muscu','coach.musculation@edu.ece.fr','1234');
+INSERT INTO `person` VALUES (1,'Senhadji','Romain','romain.senhadji@edu.ece.fr','1234'),(2,'Barth','Maxence','maxence.barth@edu.ece.fr','1234'),(3,'Sacomman','Lucas','lucas.sacomman@edu.ece.fr','1234'),(4,'Carpentier','Hermione','hermione.carpentier@edu.ece.fr','1234'),(5,'Segado','Jean-Pierre','jeanpierre.segado@edu.ece.fr','1234'),(6,'Dog','Miami','miami.dog@edu.ece.fr','1234'),(12,'Lagnaoui','Youness','youness.lagnaoui@edu.ece.fr','1234'),(18,'Coach','CoursCo','coach.CoursCo@edu.ece.fr','1234'),(19,'Coach','Basket','coach.basket@edu.ece.fr','1234'),(20,'Coach','Foot','coach.foot@edu.ece.fr','1234'),(21,'Coach','Rugby','coach.rugby@edu.ece.fr','1234'),(22,'Coach','Tennis','coach.tennis@edu.ece.fr','1234'),(23,'Coach','Natation','coach.natation@edu.ece.fr','1234'),(25,'Coach','Cardio','coach.cardio@edu.ece.fr','1234'),(26,'Coach','Biking','coach.biking@edu.ece.fr','1234'),(27,'Coach','Fitness','coach.fitness@edu.ece.fr','1234'),(28,'Coach','Muscu','coach.musculation@edu.ece.fr','1234'),(29,'Coach','Plongeon','coach.plongeon@edu.ece.fr','1234');
 /*!40000 ALTER TABLE `person` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -194,4 +193,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-05-29 22:10:15
+-- Dump completed on 2022-05-29 23:32:00

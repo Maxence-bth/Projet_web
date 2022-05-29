@@ -28,7 +28,7 @@ INNER JOIN coach
 INNER JOIN client
 	ON appointments.idClient = client.idClient
 INNER JOIN person
-	ON client.idPerson = person.idPerson AND person.Email=:email OR person.IdPerson = 1';
+	ON client.idPerson = person.idPerson AND person.Email=:email';
 $statement = $mysqlClient->prepare($sqlQuery);
 $statement->execute([
     'email' => $_GET['email'],
