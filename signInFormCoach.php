@@ -21,41 +21,43 @@
       <form class="row g-3">
         <div class="col-sm-5">
 
-          <input type="text" class="form-control" name="nom" placeholder="Nom">
+          <input type="text" class="form-control" name="nom" placeholder="Nom" minlength="2" required>
         </div><br>
         <div class="col-sm-5">
 
-          <input type="text" class="form-control" name="prenom" placeholder="Prénom">
+          <input type="text" class="form-control" name="prenom" placeholder="Prénom" minlength="2" required>
         </div><br>
         <div class="col-sm-5">
-        <select name="activity" id="">
-           <option valeur="Basket">Basketball</option>
-   <option valeur="Biking">Biking</option>
-   <option valeur="Tennis">Tennis</option>
-   <option valeur="Rugny">Rugny</option>
-   <option valeur="Musculation">Biking</option>
-   <option valeur="Collectif">Collectif</option>
-   <option valeur="Fitness">Fitness</option>
-   <option valeur="Foot">Foot</option>
-   <option valeur="Natation">Natation</option>
-   <option valeur="Plongeon">Plongeon</option>
-   
-   
-        </select>
-  
-          <?php //<input type="text" class="form-control" name="activity" placeholder="Activité">?>
+          <select name="activity" id="">
+            <option valeur="Basket">Basketball</option>
+            <option valeur="Biking">Biking</option>
+            <option valeur="Tennis">Tennis</option>
+            <option valeur="Rugny">Rugny</option>
+            <option valeur="Musculation">Biking</option>
+            <option valeur="Collectif">Collectif</option>
+            <option valeur="Fitness">Fitness</option>
+            <option valeur="Foot">Foot</option>
+            <option valeur="Natation">Natation</option>
+            <option valeur="Plongeon">Plongeon</option>
+            <option valeur="Cardio">Cardio</option>
+
+
+          </select>
+
+          <?php //<input type="text" class="form-control" name="activity" placeholder="Activité">
+          ?>
         </div><br>
         <div class="col-sm-5">
 
-          <input type="text" class="form-control" name="bureau" placeholder="Bureau">
+          <input type="text" class="form-control" name="bureau" placeholder="Bureau" minlength="2" required>
         </div><br>
         <div class="col-sm-5">
 
-          <input type="email" class="form-control" name="mail" placeholder="Email">
+          <input type="email" class="form-control" name="mail" placeholder="Email" minlength="2" required>
         </div><br>
         <div class="col-sm-5">
 
-          <input type="password" class="form-control" id="password" placeholder="Mot de passe" name="password">
+          <input type="password" class="form-control" id="password" placeholder="Mot de passe" name="password" minlength="2" required>
         </div><br>
 
         <div class="col-12">

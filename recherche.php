@@ -25,7 +25,8 @@ function rechercher($recherche)
     foreach ($recherches as $r) { //test les noms et prenoms
         $sqlQuery = "select * from person inner join coach on 
             ((person.Name=:data or person.Surname=:data) and coach.idPerson = person.idPerson) or 
-            (person.idPerson = coach.idPerson and coach.Activity = :data)";
+            (person.idPerson = coach.idPerson and coach.Activity = :data) or 
+            (person.idPerson = coach.idPerson and coach.Office = :data)";
         $statement = $mysqlClient->prepare($sqlQuery);
         $statement->execute([
             'data' => $r,

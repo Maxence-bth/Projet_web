@@ -32,7 +32,9 @@ session_start();
         </div><br><br>
         <div class="col-sm-5">
           <input type="text" class="form-control" name="password" placeholder="Password">
-        </div><br><br>
+        </div><br>
+        <div class="g-recaptcha" data-sitekey="6LcRaDQgAAAAAEXRRVtQQfEsSyLnzyPBcHMa7YS5"></div>
+        <br>
         <div class="col-12">
           <button type="submit" class="btn btn-outline-danger">Valider</button>
           <a href="index.php"><button type="button" class="btn btn-outline-danger">Retour accueil</button></a>
@@ -40,6 +42,7 @@ session_start();
       </form>
     </form>
   </div>
+  <script src='https://www.google.com/recaptcha/api.js'></script>
 </body>
 
 </html>

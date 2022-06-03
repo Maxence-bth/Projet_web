@@ -20,6 +20,10 @@ if ($db_found) {
     echo "Database not found";
 }
 //$sql = "SELECT * FROM push_n_pool.client where idPerson = 1"; 
+if ($result->num_rows == 0) {
+    header('Location: index.php');
+    exit();
+}
 
 if ($data != null) {
     $_SESSION['login'] = $mail;
@@ -51,6 +55,7 @@ if ($data != null) {
     // echo 'client';
 } else {
     $_SESSION['idClient'] = 0;
+    $_SESSION[''] = $data['idClient'];
     $_SESSION['coach'] = 1;
     //echo 'coach';
 }
